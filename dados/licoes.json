@@ -1,0 +1,1008 @@
+{
+  "versao": 2,
+  "letras": {
+    "a": {"nome": "á", "palavra": "abelha", "emoji": "🐝"},
+    "b": {"nome": "bê", "palavra": "bola", "emoji": "⚽"},
+    "c": {"nome": "cê", "palavra": "casa", "emoji": "🏠"},
+    "d": {"nome": "dê", "palavra": "dado", "emoji": "🎲"},
+    "e": {"nome": "é", "palavra": "elefante", "emoji": "🐘"},
+    "f": {"nome": "éfe", "palavra": "fada", "emoji": "🧚"},
+    "g": {"nome": "gê", "palavra": "gato", "emoji": "🐱"},
+    "h": {"nome": "agá", "palavra": "hipopótamo", "emoji": "🦛"},
+    "i": {"nome": "í", "palavra": "ilha", "emoji": "🏝️"},
+    "j": {"nome": "jóta", "palavra": "janela", "emoji": "🪟"},
+    "k": {"nome": "cá", "palavra": "kiwi", "emoji": "🥝", "fala": "quiuí"},
+    "l": {"nome": "éle", "palavra": "lua", "emoji": "🌙"},
+    "m": {"nome": "ême", "palavra": "macaco", "emoji": "🐒"},
+    "n": {"nome": "êne", "palavra": "navio", "emoji": "🚢"},
+    "o": {"nome": "ó", "palavra": "ovo", "emoji": "🥚"},
+    "p": {"nome": "pê", "palavra": "pato", "emoji": "🦆"},
+    "q": {"nome": "quê", "palavra": "queijo", "emoji": "🧀"},
+    "r": {"nome": "érre", "palavra": "rato", "emoji": "🐭"},
+    "s": {"nome": "ésse", "palavra": "sapo", "emoji": "🐸"},
+    "t": {"nome": "tê", "palavra": "tomate", "emoji": "🍅"},
+    "u": {"nome": "ú", "palavra": "uva", "emoji": "🍇"},
+    "v": {"nome": "vê", "palavra": "vaca", "emoji": "🐄"},
+    "w": {"nome": "dáblio", "palavra": "wi-fi", "emoji": "📶", "fala": "uai-fai"},
+    "x": {"nome": "xis", "palavra": "xadrez", "emoji": "♟️"},
+    "y": {"nome": "ípsilon", "palavra": "yoga", "emoji": "🧘", "fala": "ióga"},
+    "z": {"nome": "zê", "palavra": "zebra", "emoji": "🦓"}
+  },
+  "acentuadas": {"á": "á", "à": "á", "â": "â", "ã": "ã", "é": "é", "ê": "ê", "í": "í", "ó": "ó", "ô": "ô", "õ": "õ", "ú": "ú", "ç": "cê cedilha"},
+  "silabasEspeciais": {"fan": "fã", "mei": "mêi", "que": "quê", "qui": "quí", "qua": "quá", "quo": "quó", "gue": "guê", "gui": "guí", "ça": "sá", "ço": "só", "çu": "sú", "çã": "sã", "rra": "rá", "rre": "ré", "rri": "rí", "rro": "ró", "rru": "rú", "ssa": "sá", "sse": "sé", "ssi": "sí", "sso": "só", "ssu": "sú", "ka": "cá", "ke": "quê", "ki": "quí", "ko": "có", "wa": "uá", "we": "uê", "wi": "uí", "ya": "iá", "ye": "iê", "yo": "iô"},
+  "nomesFamilias": {"ce": "cê", "ge": "gê", "gu": "gê ú", "ão": "ão", "rr": "dois érres", "ss": "dois ésses"},
+  "familias": {
+    "vogais": ["a", "e", "i", "o", "u"],
+    "b": ["ba", "be", "bi", "bo", "bu"],
+    "l": ["la", "le", "li", "lo", "lu"],
+    "p": ["pa", "pe", "pi", "po", "pu"],
+    "t": ["ta", "te", "ti", "to", "tu"],
+    "c": ["ca", "co", "cu"],
+    "s": ["sa", "se", "si", "so", "su"],
+    "m": ["ma", "me", "mi", "mo", "mu"],
+    "d": ["da", "de", "di", "do", "du"],
+    "g": ["ga", "go", "gu"],
+    "f": ["fa", "fe", "fi", "fo", "fu"],
+    "v": ["va", "ve", "vi", "vo", "vu"],
+    "j": ["ja", "je", "ji", "jo", "ju"],
+    "n": ["na", "ne", "ni", "no", "nu"],
+    "r": ["ra", "re", "ri", "ro", "ru"],
+    "x": ["xa", "xe", "xi", "xo", "xu"],
+    "z": ["za", "ze", "zi", "zo", "zu"],
+    "h": ["ha", "he", "hi", "ho", "hu"],
+    "qu": ["qua", "que", "qui", "quo"],
+    "ge": ["ge", "gi"],
+    "gu": ["gue", "gui"],
+    "ce": ["ce", "ci"],
+    "ç": ["ça", "ço", "çu"],
+    "ch": ["cha", "che", "chi", "cho", "chu"],
+    "nh": ["nha", "nhe", "nhi", "nho", "nhu"],
+    "lh": ["lha", "lhe", "lhi", "lho", "lhu"],
+    "rr": ["rra", "rre", "rri", "rro", "rru"],
+    "ss": ["ssa", "sse", "ssi", "sso", "ssu"],
+    "ão": ["ão", "pão", "mão", "cão", "lão", "bão"],
+    "pr": ["pra", "pre", "pri", "pro", "pru"],
+    "br": ["bra", "bre", "bri", "bro", "bru"],
+    "tr": ["tra", "tre", "tri", "tro", "tru"],
+    "fr": ["fra", "fre", "fri", "fro", "fru"],
+    "gr": ["gra", "gre", "gri", "gro", "gru"],
+    "pl": ["pla", "ple", "pli", "plo", "plu"],
+    "bl": ["bla", "ble", "bli", "blo", "blu"],
+    "cl": ["cla", "cle", "cli", "clo", "clu"],
+    "fl": ["fla", "fle", "fli", "flo", "flu"],
+    "gl": ["gla", "gle", "gli", "glo", "glu"],
+    "k": ["ka", "ke", "ki", "ko"],
+    "w": ["wa", "we", "wi"],
+    "y": ["ya", "ye", "yo"]
+  },
+  "notasFamilias": {
+    "c": "CE e CI têm outro som. Vamos ver depois!",
+    "g": "GE e GI têm outro som. Vamos ver depois!",
+    "h": "O H sozinho não tem som: HA soa como A!",
+    "qu": "Depois do Q sempre vem U: QUE, QUI.",
+    "ce": "C antes de E e I soa como S.",
+    "ç": "Ç (cê cedilha) soa como S antes de A, O e U.",
+    "ge": "G antes de E e I soa como J.",
+    "gu": "Em GUE e GUI o U não aparece no som.",
+    "rr": "RR só aparece no meio da palavra: CARRO.",
+    "ss": "SS no meio da palavra soa como S: PÁSSARO.",
+    "ão": "O til (~) deixa o som nasal, pelo nariz: ÃO.",
+    "k": "K, W e Y aparecem em nomes e palavras de outras línguas."
+  },
+  "sons": [
+    ["a", "a", "abelha", "aberto e comprido", "😮", "o susto: aaaa!"],
+    ["e", "e", "elefante", "aberto, como em ELEFANTE", "🤢", "o nojo: éééca!"],
+    ["i", "i", "ilha", "fininho e comprido", "🐭", "o ratinho: iiiii!"],
+    ["o", "o", "ovo", "redondo, como em OVO", "😲", "a surpresa: ôôôô!"],
+    ["u", "u", "uva", "com a boca em bico", "👻", "o fantasma: uuuuu!"],
+    ["b", "b", "bola", "curtinho, sem dizer \"bê\"", "💣", "a bomba: bbbum!"],
+    ["c", "c", "casa", "o estalo do começo de CASA, sem dizer \"cê\"", "🐔", "a galinha: k-k-có!"],
+    ["d", "d", "dado", "curtinho, sem dizer \"dê\"", "🥁", "o tambor: d-d-dum!"],
+    ["f", "f", "fada", "um sopro, com os dentes no lábio", "🐱", "o gato bravo: ffffff!"],
+    ["g", "g", "gato", "o som do começo de GATO, sem dizer \"gê\"", "💦", "o gargarejo: g-g-g-g!"],
+    ["j", "j", "janela", "comprido, como no começo de JANELA", "🚿", "o jato do chuveiro: jjjjj!"],
+    ["l", "l", "lua", "a língua encostada atrás dos dentes", "🎶", "cantando: lllá-lá-lá!"],
+    ["m", "m", "macaco", "de boca fechada", "🧁", "o doce gostoso: mmmmm!"],
+    ["n", "n", "navio", "pelo nariz", "🙅", "o \"não, não\": nnnnn!"],
+    ["p", "p", "pato", "o estalo dos lábios, sem dizer \"pê\"", "🍿", "a pipoca estourando: p-p-p!"],
+    ["r", "r", "rato", "o R forte do começo de RATO", "🏎️", "o motor do carro: rrrrr!"],
+    ["s", "s", "sapo", "comprido, como uma cobrinha", "🐍", "a cobra: sssss!"],
+    ["t", "t", "tomate", "o estalo da língua, sem dizer \"tê\"", "⏰", "o relógio: t-t-t (tic-tac)!"],
+    ["v", "v", "vaca", "comprido, com os dentes no lábio", "✈️", "o avião: vvvvv!"],
+    ["x", "x", "xícara", "comprido, como em XÍCARA", "🤫", "pedindo silêncio: xxxxx (chhh)!"],
+    ["z", "z", "zebra", "comprido e vibrando", "🐝", "a abelha: zzzzz!"],
+    ["nh", "nh", "galinha", "como no meio de GALINHA", "🍉", "a mordida na melancia: nhac!"],
+    ["lh", "lh", "coelho", "como no meio de COELHO", "👀", "\"olha!\": lhhh!"]
+  ],
+  "sonsIguais": {"k": "c", "q": "c", "qu": "c", "w": "u", "y": "i", "ç": "s", "ss": "s", "ch": "x", "rr": "r", "gu": "g", "á": "a", "â": "a", "ã": "a", "é": "e", "ê": "e", "í": "i", "ó": "o", "ô": "o", "õ": "o", "ú": "u"},
+  "palavras": {
+    "abelha": {"s": ["a", "be", "lha"], "e": "🐝"},
+    "elefante": {"s": ["e", "le", "fan", "te"], "e": "🐘"},
+    "ilha": {"s": ["i", "lha"], "e": "🏝️"},
+    "ovo": {"s": ["o", "vo"], "e": "🥚", "fs": ["ô", "vó"]},
+    "uva": {"s": ["u", "va"], "e": "🍇"},
+    "bola": {"s": ["bo", "la"], "e": "⚽"},
+    "bolo": {"s": ["bo", "lo"], "e": "🎂", "fs": ["bô", "ló"]},
+    "lobo": {"s": ["lo", "bo"], "e": "🐺", "fs": ["lô", "bó"]},
+    "bala": {"s": ["ba", "la"], "e": "🍬"},
+    "bule": {"s": ["bu", "le"], "e": "🫖"},
+    "lula": {"s": ["lu", "la"], "e": "🦑"},
+    "boi": {"s": ["boi"], "e": "🐂"},
+    "lua": {"s": ["lu", "a"], "e": "🌙"},
+    "pato": {"s": ["pa", "to"], "e": "🦆"},
+    "pipa": {"s": ["pi", "pa"], "e": "🪁"},
+    "bota": {"s": ["bo", "ta"], "e": "👢"},
+    "lata": {"s": ["la", "ta"], "e": "🥫"},
+    "batata": {"s": ["ba", "ta", "ta"], "e": "🥔"},
+    "pote": {"s": ["po", "te"], "e": "🍯"},
+    "tia": {"s": ["ti", "a"], "e": "👩‍🏫"},
+    "casa": {"s": ["ca", "sa"], "e": "🏠"},
+    "sapo": {"s": ["sa", "po"], "e": "🐸"},
+    "sopa": {"s": ["so", "pa"], "e": "🍲", "fs": ["sô", "pá"]},
+    "coco": {"s": ["co", "co"], "e": "🥥", "fs": ["cô", "có"]},
+    "copo": {"s": ["co", "po"], "e": "🥛"},
+    "boca": {"s": ["bo", "ca"], "e": "👄", "fs": ["bô", "cá"]},
+    "sapato": {"s": ["sa", "pa", "to"], "e": "👞"},
+    "casaco": {"s": ["ca", "sa", "co"], "e": "🧥"},
+    "pipoca": {"s": ["pi", "po", "ca"], "e": "🍿"},
+    "sacola": {"s": ["sa", "co", "la"], "e": "🛍️"},
+    "cabelo": {"s": ["ca", "be", "lo"], "e": "💇‍♀️", "fs": ["cá", "bê", "ló"]},
+    "suco": {"s": ["su", "co"], "e": "🧃"},
+    "macaco": {"s": ["ma", "ca", "co"], "e": "🐒"},
+    "mala": {"s": ["ma", "la"], "e": "🧳"},
+    "mapa": {"s": ["ma", "pa"], "e": "🗺️"},
+    "cama": {"s": ["ca", "ma"], "e": "🛏️"},
+    "moto": {"s": ["mo", "to"], "e": "🏍️"},
+    "tomate": {"s": ["to", "ma", "te"], "e": "🍅", "fs": ["tô", "má", "té"]},
+    "mamute": {"s": ["ma", "mu", "te"], "e": "🦣"},
+    "cometa": {"s": ["co", "me", "ta"], "e": "☄️", "fs": ["cô", "mê", "tá"]},
+    "camelo": {"s": ["ca", "me", "lo"], "e": "🐫", "fs": ["cá", "mê", "ló"]},
+    "meia": {"s": ["mei", "a"], "e": "🧦"},
+    "dado": {"s": ["da", "do"], "e": "🎲"},
+    "dedo": {"s": ["de", "do"], "e": "☝️", "fs": ["dê", "dó"]},
+    "moeda": {"s": ["mo", "e", "da"], "e": "🪙", "fs": ["mô", "é", "dá"]},
+    "cadeado": {"s": ["ca", "de", "a", "do"], "e": "🔒"},
+    "salada": {"s": ["sa", "la", "da"], "e": "🥗"},
+    "bode": {"s": ["bo", "de"], "e": "🐐"},
+    "tomada": {"s": ["to", "ma", "da"], "e": "🔌", "fs": ["tô", "má", "dá"]},
+    "medo": {"s": ["me", "do"], "e": "😨", "fs": ["mê", "dó"]},
+    "gato": {"s": ["ga", "to"], "e": "🐱"},
+    "galo": {"s": ["ga", "lo"], "e": "🐓"},
+    "gota": {"s": ["go", "ta"], "e": "💧", "fs": ["gô", "tá"]},
+    "bigode": {"s": ["bi", "go", "de"], "e": "🥸"},
+    "lago": {"s": ["la", "go"], "e": "🏞️"},
+    "mago": {"s": ["ma", "go"], "e": "🧙"},
+    "amigo": {"s": ["a", "mi", "go"], "e": "🤝"},
+    "fada": {"s": ["fa", "da"], "e": "🧚"},
+    "foca": {"s": ["fo", "ca"], "e": "🦭"},
+    "fita": {"s": ["fi", "ta"], "e": "🎀"},
+    "fogo": {"s": ["fo", "go"], "e": "🔥", "fs": ["fô", "gó"]},
+    "café": {"s": ["ca", "fé"], "e": "☕"},
+    "sofá": {"s": ["so", "fá"], "e": "🛋️"},
+    "vaca": {"s": ["va", "ca"], "e": "🐄"},
+    "luva": {"s": ["lu", "va"], "e": "🧤"},
+    "vela": {"s": ["ve", "la"], "e": "🕯️"},
+    "vovó": {"s": ["vo", "vó"], "e": "👵"},
+    "vovô": {"s": ["vo", "vô"], "e": "👴"},
+    "cavalo": {"s": ["ca", "va", "lo"], "e": "🐴"},
+    "vaso": {"s": ["va", "so"], "e": "🏺"},
+    "janela": {"s": ["ja", "ne", "la"], "e": "🪟"},
+    "jabuti": {"s": ["ja", "bu", "ti"], "e": "🐢"},
+    "banana": {"s": ["ba", "na", "na"], "e": "🍌"},
+    "boneca": {"s": ["bo", "ne", "ca"], "e": "🪆"},
+    "panela": {"s": ["pa", "ne", "la"], "e": "🍳"},
+    "menino": {"s": ["me", "ni", "no"], "e": "👦", "fs": ["mê", "ní", "nó"]},
+    "menina": {"s": ["me", "ni", "na"], "e": "👧", "fs": ["mê", "ní", "ná"]},
+    "caneta": {"s": ["ca", "ne", "ta"], "e": "🖊️", "fs": ["cá", "nê", "tá"]},
+    "navio": {"s": ["na", "vi", "o"], "e": "🚢"},
+    "neve": {"s": ["ne", "ve"], "e": "❄️"},
+    "rato": {"s": ["ra", "to"], "e": "🐭"},
+    "rede": {"s": ["re", "de"], "e": "🥅", "fs": ["rê", "dí"]},
+    "rosa": {"s": ["ro", "sa"], "e": "🌹"},
+    "remo": {"s": ["re", "mo"], "e": "🛶", "fs": ["rê", "mó"]},
+    "rena": {"s": ["re", "na"], "e": "🦌", "fs": ["rê", "ná"]},
+    "rei": {"s": ["rei"], "e": "🤴"},
+    "rio": {"s": ["ri", "o"], "e": "🏞️"},
+    "jacaré": {"s": ["ja", "ca", "ré"], "e": "🐊"},
+    "pirata": {"s": ["pi", "ra", "ta"], "e": "🏴‍☠️"},
+    "arara": {"s": ["a", "ra", "ra"], "e": "🦜"},
+    "careta": {"s": ["ca", "re", "ta"], "e": "😜", "fs": ["cá", "rê", "tá"]},
+    "xícara": {"s": ["xí", "ca", "ra"], "e": "☕"},
+    "peixe": {"s": ["pei", "xe"], "e": "🐟"},
+    "abacaxi": {"s": ["a", "ba", "ca", "xi"], "e": "🍍"},
+    "caixa": {"s": ["cai", "xa"], "e": "📦"},
+    "lixo": {"s": ["li", "xo"], "e": "🗑️"},
+    "bexiga": {"s": ["be", "xi", "ga"], "e": "🎈"},
+    "roxo": {"s": ["ro", "xo"], "e": "🟣", "fs": ["rô", "xó"]},
+    "zebra": {"s": ["ze", "bra"], "e": "🦓", "fs": ["zê", "brá"]},
+    "zero": {"s": ["ze", "ro"], "e": "0️⃣"},
+    "doze": {"s": ["do", "ze"], "e": "🕛", "fs": ["dô", "zé"]},
+    "azeitona": {"s": ["a", "zei", "to", "na"], "e": "🫒"},
+    "buzina": {"s": ["bu", "zi", "na"], "e": "📯"},
+    "azedo": {"s": ["a", "ze", "do"], "e": "🍋", "fs": ["á", "zê", "dó"]},
+    "hipopótamo": {"s": ["hi", "po", "pó", "ta", "mo"], "e": "🦛"},
+    "hora": {"s": ["ho", "ra"], "e": "⏰"},
+    "hino": {"s": ["hi", "no"], "e": "🎶"},
+    "herói": {"s": ["he", "rói"], "e": "🦸"},
+    "hoje": {"s": ["ho", "je"], "e": "📅", "fs": ["ô", "jé"]},
+    "queijo": {"s": ["quei", "jo"], "e": "🧀"},
+    "periquito": {"s": ["pe", "ri", "qui", "to"], "e": "🦜"},
+    "raquete": {"s": ["ra", "que", "te"], "e": "🏸", "fs": ["rá", "quê", "tí"]},
+    "aquário": {"s": ["a", "quá", "rio"], "e": "🐠"},
+    "girafa": {"s": ["gi", "ra", "fa"], "e": "🦒"},
+    "gelo": {"s": ["ge", "lo"], "e": "🧊", "fs": ["gê", "ló"]},
+    "tigela": {"s": ["ti", "ge", "la"], "e": "🥣"},
+    "gelatina": {"s": ["ge", "la", "ti", "na"], "e": "🍮"},
+    "mágico": {"s": ["má", "gi", "co"], "e": "🪄"},
+    "foguete": {"s": ["fo", "gue", "te"], "e": "🚀", "fs": ["fô", "guê", "tí"]},
+    "fogueira": {"s": ["fo", "guei", "ra"], "e": "🔥"},
+    "cebola": {"s": ["ce", "bo", "la"], "e": "🧅", "fs": ["cê", "bó", "lá"]},
+    "cenoura": {"s": ["ce", "nou", "ra"], "e": "🥕"},
+    "cidade": {"s": ["ci", "da", "de"], "e": "🏙️"},
+    "doce": {"s": ["do", "ce"], "e": "🍭", "fs": ["dô", "cí"]},
+    "taça": {"s": ["ta", "ça"], "e": "🏆"},
+    "laço": {"s": ["la", "ço"], "e": "🎀"},
+    "maçã": {"s": ["ma", "çã"], "e": "🍎"},
+    "cinema": {"s": ["ci", "ne", "ma"], "e": "🎬", "fs": ["cí", "nê", "má"]},
+    "chuva": {"s": ["chu", "va"], "e": "🌧️"},
+    "chave": {"s": ["cha", "ve"], "e": "🔑"},
+    "chocolate": {"s": ["cho", "co", "la", "te"], "e": "🍫"},
+    "chinelo": {"s": ["chi", "ne", "lo"], "e": "🩴"},
+    "mochila": {"s": ["mo", "chi", "la"], "e": "🎒"},
+    "bicho": {"s": ["bi", "cho"], "e": "🐛"},
+    "chá": {"s": ["chá"], "e": "🍵"},
+    "chapéu": {"s": ["cha", "péu"], "e": "🎩"},
+    "galinha": {"s": ["ga", "li", "nha"], "e": "🐔"},
+    "aranha": {"s": ["a", "ra", "nha"], "e": "🕷️"},
+    "minhoca": {"s": ["mi", "nho", "ca"], "e": "🪱"},
+    "banho": {"s": ["ba", "nho"], "e": "🛁"},
+    "unha": {"s": ["u", "nha"], "e": "💅"},
+    "joaninha": {"s": ["jo", "a", "ni", "nha"], "e": "🐞"},
+    "sonho": {"s": ["so", "nho"], "e": "💭", "fs": ["sô", "nhó"]},
+    "coelho": {"s": ["co", "e", "lho"], "e": "🐰", "fs": ["cô", "ê", "lhó"]},
+    "folha": {"s": ["fo", "lha"], "e": "🍃", "fs": ["fô", "lhá"]},
+    "olho": {"s": ["o", "lho"], "e": "👁️", "fs": ["ô", "lhó"]},
+    "milho": {"s": ["mi", "lho"], "e": "🌽"},
+    "orelha": {"s": ["o", "re", "lha"], "e": "👂", "fs": ["ó", "rê", "lhá"]},
+    "palhaço": {"s": ["pa", "lha", "ço"], "e": "🤡"},
+    "baralho": {"s": ["ba", "ra", "lho"], "e": "🃏"},
+    "carro": {"s": ["car", "ro"], "e": "🚗"},
+    "cachorro": {"s": ["ca", "chor", "ro"], "e": "🐶"},
+    "terra": {"s": ["ter", "ra"], "e": "🌍"},
+    "gorro": {"s": ["gor", "ro"], "e": "🧢"},
+    "pássaro": {"s": ["pás", "sa", "ro"], "e": "🐦"},
+    "osso": {"s": ["os", "so"], "e": "🦴"},
+    "massa": {"s": ["mas", "sa"], "e": "🍝"},
+    "pão": {"s": ["pão"], "e": "🍞"},
+    "mão": {"s": ["mão"], "e": "✋"},
+    "cão": {"s": ["cão"], "e": "🐕"},
+    "leão": {"s": ["le", "ão"], "e": "🦁"},
+    "balão": {"s": ["ba", "lão"], "e": "🎈"},
+    "limão": {"s": ["li", "mão"], "e": "🍋"},
+    "avião": {"s": ["a", "vi", "ão"], "e": "✈️"},
+    "sabão": {"s": ["sa", "bão"], "e": "🧼"},
+    "prato": {"s": ["pra", "to"], "e": "🍽️"},
+    "praia": {"s": ["prai", "a"], "e": "🏖️"},
+    "cobra": {"s": ["co", "bra"], "e": "🐍", "fs": ["có", "brá"]},
+    "bruxa": {"s": ["bru", "xa"], "e": "🧙‍♀️"},
+    "fruta": {"s": ["fru", "ta"], "e": "🍓"},
+    "tigre": {"s": ["ti", "gre"], "e": "🐯", "fs": ["tí", "grí"]},
+    "grilo": {"s": ["gri", "lo"], "e": "🦗"},
+    "trigo": {"s": ["tri", "go"], "e": "🌾"},
+    "planeta": {"s": ["pla", "ne", "ta"], "e": "🪐", "fs": ["plá", "nê", "tá"]},
+    "placa": {"s": ["pla", "ca"], "e": "🪧"},
+    "bloco": {"s": ["blo", "co"], "e": "🧱"},
+    "blusa": {"s": ["blu", "sa"], "e": "👚"},
+    "bicicleta": {"s": ["bi", "ci", "cle", "ta"], "e": "🚲", "fs": ["bí", "cí", "clé", "tá"]},
+    "teclado": {"s": ["te", "cla", "do"], "e": "⌨️"},
+    "flecha": {"s": ["fle", "cha"], "e": "🏹", "fs": ["flé", "chá"]},
+    "globo": {"s": ["glo", "bo"], "e": "🌐"},
+    "kiwi": {"s": ["ki", "wi"], "e": "🥝", "fala": "quiuí"},
+    "karatê": {"s": ["ka", "ra", "tê"], "e": "🥋"},
+    "koala": {"s": ["ko", "a", "la"], "e": "🐨", "fala": "coala"},
+    "yoga": {"s": ["yo", "ga"], "e": "🧘", "fala": "ióga"},
+    "yakisoba": {"s": ["ya", "ki", "so", "ba"], "e": "🍜", "fala": "iaquissoba"},
+    "baleia": {"s": ["ba", "lei", "a"], "e": "🐋"},
+    "bebê": {"s": ["be", "bê"], "e": "👶"},
+    "dente": {"s": ["den", "te"], "e": "🦷", "fs": ["dên", "tí"]},
+    "dinossauro": {"s": ["di", "nos", "sau", "ro"], "e": "🦕"},
+    "formiga": {"s": ["for", "mi", "ga"], "e": "🐜"},
+    "fumaça": {"s": ["fu", "ma", "ça"], "e": "💨"},
+    "gorila": {"s": ["go", "ri", "la"], "e": "🦍"},
+    "joia": {"s": ["joi", "a"], "e": "💎", "fs": ["jói", "á"]},
+    "jipe": {"s": ["ji", "pe"], "e": "🚙", "fs": ["jí", "pí"]},
+    "leite": {"s": ["lei", "te"], "e": "🥛"},
+    "nove": {"s": ["no", "ve"], "e": "9️⃣", "fs": ["nó", "ví"]},
+    "novelo": {"s": ["no", "ve", "lo"], "e": "🧶", "fs": ["nô", "vê", "ló"]},
+    "noite": {"s": ["noi", "te"], "e": "🌃"},
+    "nuvem": {"s": ["nu", "vem"], "e": "☁️"},
+    "nariz": {"s": ["na", "riz"], "e": "👃"},
+    "pera": {"s": ["pe", "ra"], "e": "🍐", "fs": ["pê", "rá"]},
+    "quatro": {"s": ["qua", "tro"], "e": "4️⃣"},
+    "quadro": {"s": ["qua", "dro"], "e": "🖼️"},
+    "rua": {"s": ["ru", "a"], "e": "🛣️"},
+    "sino": {"s": ["si", "no"], "e": "🔔"},
+    "sorvete": {"s": ["sor", "ve", "te"], "e": "🍦", "fs": ["sor", "vê", "tí"]},
+    "teia": {"s": ["tei", "a"], "e": "🕸️"},
+    "telefone": {"s": ["te", "le", "fo", "ne"], "e": "☎️", "fs": ["té", "lé", "fô", "ní"]},
+    "tubarão": {"s": ["tu", "ba", "rão"], "e": "🦈"},
+    "tesoura": {"s": ["te", "sou", "ra"], "e": "✂️", "fs": ["tê", "sou", "rá"]},
+    "violão": {"s": ["vi", "o", "lão"], "e": "🎸"},
+    "vulcão": {"s": ["vul", "cão"], "e": "🌋"},
+    "xadrez": {"s": ["xa", "drez"], "e": "♟️"},
+    "xampu": {"s": ["xam", "pu"], "e": "🧴"},
+    "zumbi": {"s": ["zum", "bi"], "e": "🧟"},
+
+    "borboleta": {"s": ["bor", "bo", "le", "ta"], "e": "🦋", "fs": ["bór", "bô", "lê", "tá"]},
+    "barco": {"s": ["bar", "co"], "e": "⛵"},
+    "coroa": {"s": ["co", "ro", "a"], "e": "👑", "fs": ["cô", "rô", "á"]},
+    "camisa": {"s": ["ca", "mi", "sa"], "e": "👕"},
+    "caracol": {"s": ["ca", "ra", "col"], "e": "🐌"},
+    "cueca": {"s": ["cu", "e", "ca"], "e": "🩲"},
+    "diamante": {"s": ["di", "a", "man", "te"], "e": "💎"},
+    "dinheiro": {"s": ["di", "nhei", "ro"], "e": "💵"},
+    "doutor": {"s": ["dou", "tor"], "e": "👨‍⚕️"},
+    "festa": {"s": ["fes", "ta"], "e": "🎉"},
+    "fazenda": {"s": ["fa", "zen", "da"], "e": "🚜"},
+    "fantasma": {"s": ["fan", "tas", "ma"], "e": "👻"},
+    "futebol": {"s": ["fu", "te", "bol"], "e": "⚽"},
+    "garrafa": {"s": ["gar", "ra", "fa"], "e": "🍾"},
+    "garfo": {"s": ["gar", "fo"], "e": "🍴"},
+    "goleiro": {"s": ["go", "lei", "ro"], "e": "🧤"},
+    "helicóptero": {"s": ["he", "li", "cóp", "te", "ro"], "e": "🚁"},
+    "hambúrguer": {"s": ["ham", "búr", "guer"], "e": "🍔"},
+    "hospital": {"s": ["hos", "pi", "tal"], "e": "🏥"},
+    "hotel": {"s": ["ho", "tel"], "e": "🏨"},
+    "jogo": {"s": ["jo", "go"], "e": "🎮", "fs": ["jô", "gó"]},
+    "jornal": {"s": ["jor", "nal"], "e": "📰"},
+    "joelho": {"s": ["jo", "e", "lho"], "e": "🦵", "fs": ["jô", "ê", "lhó"]},
+    "judô": {"s": ["ju", "dô"], "e": "🥋"},
+    "lápis": {"s": ["lá", "pis"], "e": "✏️"},
+    "livro": {"s": ["li", "vro"], "e": "📖"},
+    "laranja": {"s": ["la", "ran", "ja"], "e": "🍊"},
+    "lâmpada": {"s": ["lâm", "pa", "da"], "e": "💡"},
+    "melancia": {"s": ["me", "lan", "ci", "a"], "e": "🍉"},
+    "morango": {"s": ["mo", "ran", "go"], "e": "🍓"},
+    "nota": {"s": ["no", "ta"], "e": "🎵", "fs": ["nó", "tá"]},
+    "número": {"s": ["nú", "me", "ro"], "e": "🔢"},
+    "nadar": {"s": ["na", "dar"], "e": "🏊"},
+    "pé": {"s": ["pé"], "e": "🦶"},
+    "pirulito": {"s": ["pi", "ru", "li", "to"], "e": "🍭"},
+    "pinguim": {"s": ["pin", "guim"], "e": "🐧"},
+    "porco": {"s": ["por", "co"], "e": "🐷"},
+    "robô": {"s": ["ro", "bô"], "e": "🤖"},
+    "raposa": {"s": ["ra", "po", "sa"], "e": "🦊"},
+    "rinoceronte": {"s": ["ri", "no", "ce", "ron", "te"], "e": "🦏"},
+    "relógio": {"s": ["re", "ló", "gio"], "e": "⏰"},
+    "sol": {"s": ["sol"], "e": "☀️"},
+    "sereia": {"s": ["se", "rei", "a"], "e": "🧜‍♀️"},
+    "sanduíche": {"s": ["san", "du", "í", "che"], "e": "🥪"},
+    "semáforo": {"s": ["se", "má", "fo", "ro"], "e": "🚦"},
+    "tartaruga": {"s": ["tar", "ta", "ru", "ga"], "e": "🐢"},
+    "televisão": {"s": ["te", "le", "vi", "são"], "e": "📺"},
+    "tambor": {"s": ["tam", "bor"], "e": "🥁"},
+    "tênis": {"s": ["tê", "nis"], "e": "👟"},
+    "vassoura": {"s": ["vas", "sou", "ra"], "e": "🧹"},
+    "violino": {"s": ["vi", "o", "li", "no"], "e": "🎻"},
+    "vestido": {"s": ["ves", "ti", "do"], "e": "👗"},
+    "xerife": {"s": ["xe", "ri", "fe"], "e": "🤠"},
+    "zangado": {"s": ["zan", "ga", "do"], "e": "😠"}
+  },
+  "frases": {
+    "comecar": "Oi! Vamos aprender a ler brincando?",
+    "qualSilabaFalta": "Que sílaba está faltando?",
+    "comecaCom": "Qual figura começa com esta sílaba?",
+    "contarSilabas": "Quantas sílabas tem esta palavra?",
+    "bingo": "Bingo!",
+    "bingoOuca": "Escute a sílaba. Se tiver na sua cartela, toque nela!",
+    "juntarSons": "Vamos juntar os sons!",
+    "qualLetraSom": "Qual letra faz este som?",
+    "hSemSom": "O agá não tem som!",
+    "metodoFreire": "Método Paulo Freire: primeiro a palavra, depois as sílabas.",
+    "metodoFonico": "Método fônico: primeiro o som das letras, depois as sílabas.",
+    "testeSom": "Oi! Você está me ouvindo? Então o som está funcionando!",
+    "tocarParaOuvir": "Toque na palavra para ouvir.",
+    "passarParaOuvir": "Passe o dedo na palavra para ouvir.",
+    "quem": "Quem vai brincar hoje?",
+    "escolha": "Escolha uma lição.",
+    "elogios": [
+      "Muito bem!",
+      "Isso mesmo!",
+      "Parabéns!",
+      "Você conseguiu!",
+      "Que legal!",
+      "Arrasou!"
+    ],
+    "erros": [
+      "Tente de novo!",
+      "Quase! Tente outra vez."
+    ],
+    "estrela": "Você ganhou uma estrela!",
+    "palavra": "Passe o dedo nas sílabas e na palavra.",
+    "juntar": "Vamos juntar as letras!",
+    "juntarVogais": "Vamos juntar as vogais!",
+    "familia": "Família do {x}.",
+    "descobrir": "Junte as sílabas e descubra palavras!",
+    "naoConheco": "Hum... essa palavra eu não conheço. Tente outra!",
+    "memoria": "Encontre os pares!",
+    "caca": {
+      "silaba": "Onde está a sílaba {x}?",
+      "palavra": "Onde está a palavra {x}?",
+      "letra": "Onde está a letra {x}?"
+    },
+    "montar": "Monte a palavra {x}.",
+    "alfabeto": "{x}, de {y}.",
+    "vogais": "As vogais são: á, é, í, ó, ú.",
+    "fimHistoria": "Fim! Gostou da história?",
+    "escritas": {
+      "maiuscula": "Letra de forma maiúscula.",
+      "minuscula": "Letra de forma minúscula.",
+      "cursiva": "Letra cursiva, de mão.",
+      "misturada": "Todas as letras misturadas!"
+    }
+  },
+  "licoes": [
+    {
+      "id": "vogais", "tipo": "vogais", "titulo": "As vogais", "emoji": "🐝",
+      "vogais": ["a", "e", "i", "o", "u"],
+      "encontros": [{"t": "ai", "e": "😣", "f": "ai!"}, {"t": "oi", "e": "👋", "f": "oi!"}, {"t": "eu", "e": "🙋", "f": "eu!"}, {"t": "ui", "e": "😖", "f": "ui!"}, {"t": "au", "e": "🐶", "f": "au, au!"}],
+      "historia": {
+        "titulo": "A abelha e o ovo",
+        "cenas": [
+          {"fundo": "campo", "texto": "Oi! Eu sou a abelha.",
+           "atores": [{"e": "🐝", "x": 50, "y": 42, "t": 26, "a": "flutua"}]},
+          {"fundo": "campo", "texto": "A abelha achou um ovo.",
+           "atores": [{"e": "🐝", "x": 28, "y": 32, "t": 18, "a": "flutua"}, {"e": "🥚", "x": 62, "y": 70, "t": 20, "a": "aparece"}]},
+          {"fundo": "campo", "texto": "O ovo pulou: ui, ui, ui!",
+           "atores": [{"e": "🥚", "x": 50, "y": 68, "t": 24, "a": "pula"}, {"e": "🐝", "x": 22, "y": 28, "t": 14, "a": "flutua"}]},
+          {"fundo": "campo", "texto": "Ai! O ovo abriu. Saiu um pintinho!",
+           "atores": [{"e": "🐣", "x": 50, "y": 66, "t": 28, "a": "aparece"}, {"e": "🐝", "x": 25, "y": 30, "t": 14, "a": "flutua"}]},
+          {"fundo": "campo", "texto": "Au, au! O cachorro veio dar oi.",
+           "atores": [{"e": "🐶", "x": 32, "y": 66, "t": 26, "a": "entra"}, {"e": "🐣", "x": 66, "y": 70, "t": 18, "a": "pula"}]}
+        ]
+      }
+    },
+    {
+      "id": "bola", "titulo": "Bola", "palavra": "bola", "familias": ["b"],
+      "palavras": ["bola", "bolo", "bala", "bule", "boi", "bota", "banana", "boneca", "baleia", "bebê", "borboleta", "barco", "bicicleta", "bigode", "bode", "banho"],
+      "historia": {
+        "titulo": "A bola do lobo",
+        "cenas": [
+          {"fundo": "campo", "texto": "O lobo tem uma bola.",
+           "atores": [{"e": "🐺", "x": 35, "y": 64, "t": 30, "a": "entra"}, {"e": "⚽", "x": 66, "y": 76, "t": 14, "a": "aparece", "d": 0.6}]},
+          {"fundo": "campo", "texto": "A bola pula, pula, pula!",
+           "atores": [{"e": "⚽", "x": 52, "y": 68, "t": 18, "a": "pula"}, {"e": "🐺", "x": 20, "y": 66, "t": 24, "a": "balanca"}]},
+          {"fundo": "campo", "texto": "Ops! A bola caiu no bolo!",
+           "atores": [{"e": "🎂", "x": 60, "y": 72, "t": 22, "a": "aparece"}, {"e": "⚽", "x": 60, "y": 54, "t": 12, "a": "cai", "d": 0.5}, {"e": "🐺", "x": 22, "y": 66, "t": 24}]},
+          {"fundo": "campo", "texto": "Ai, ai! O meu bolo!",
+           "atores": [{"e": "🐺", "x": 35, "y": 64, "t": 30, "a": "treme"}, {"e": "🎂", "x": 66, "y": 74, "t": 20}]},
+          {"fundo": "campo", "texto": "O lobo come o bolo. Hum, que bom!",
+           "atores": [{"e": "🐺", "x": 40, "y": 64, "t": 30, "a": "pulsa"}, {"e": "🎂", "x": 64, "y": 76, "t": 14, "a": "some", "d": 1.2}]}
+        ]
+      }
+    },
+    {
+      "id": "pato", "titulo": "Pato", "palavra": "pato", "familias": ["p"],
+      "palavras": ["pato", "pipa", "pote", "pipoca", "pera", "peixe", "pirata", "panela", "pé", "pirulito", "pinguim", "porco", "palhaço", "pão"],
+      "historia": {
+        "titulo": "O pato e a pipa",
+        "cenas": [
+          {"fundo": "campo", "texto": "O pato tem uma pipa.",
+           "atores": [{"e": "🦆", "x": 30, "y": 70, "t": 26, "a": "entra"}, {"e": "🪁", "x": 66, "y": 30, "t": 20, "a": "flutua"}]},
+          {"fundo": "campo", "texto": "A pipa voa, voa, voa!",
+           "atores": [{"e": "🪁", "x": 50, "y": 26, "t": 22, "a": "voa"}, {"e": "🦆", "x": 24, "y": 72, "t": 20, "a": "balanca"}]},
+          {"fundo": "campo", "texto": "O pato bota a bota e pula.",
+           "atores": [{"e": "🦆", "x": 50, "y": 62, "t": 26, "a": "pula"}, {"e": "👢", "x": 50, "y": 80, "t": 12, "a": "pula"}]},
+          {"fundo": "campo", "texto": "Ih! A pipa caiu na lata!",
+           "atores": [{"e": "🥫", "x": 64, "y": 76, "t": 16, "a": "aparece"}, {"e": "🪁", "x": 64, "y": 56, "t": 18, "a": "cai", "d": 0.4}, {"e": "🦆", "x": 26, "y": 70, "t": 22, "a": "treme"}]},
+          {"fundo": "campo", "texto": "O pato pega a pipa. Viva!",
+           "atores": [{"e": "🦆", "x": 40, "y": 68, "t": 26, "a": "pula"}, {"e": "🪁", "x": 64, "y": 36, "t": 20, "a": "flutua"}]}
+        ]
+      }
+    },
+    {
+      "id": "tomate", "titulo": "Tomate", "palavra": "tomate", "familias": ["t"],
+      "palavras": ["tomate", "tomada", "tia", "teia", "telefone", "tubarão", "tesoura", "tigela", "tartaruga", "televisão", "tambor", "tênis", "tigre"],
+      "historia": {
+        "titulo": "O tubarão e o tomate",
+        "cenas": [
+          {"fundo": "mar", "texto": "O tubarão achou um tomate.",
+           "atores": [{"e": "🦈", "x": 36, "y": 68, "t": 28, "a": "entra"}, {"e": "🍅", "x": 64, "y": 70, "t": 14, "a": "aparece", "d": 0.5}]},
+          {"fundo": "mar", "texto": "Ele levou o tomate para a tia.",
+           "atores": [{"e": "🦈", "x": 40, "y": 68, "t": 26, "a": "anda"}, {"e": "👩‍🏫", "x": 72, "y": 58, "t": 24, "a": "aparece"}]},
+          {"fundo": "casa", "texto": "A tia fez sopa de tomate.",
+           "atores": [{"e": "🍲", "x": 52, "y": 66, "t": 18, "a": "aparece"}, {"e": "👩‍🏫", "x": 74, "y": 62, "t": 22}, {"e": "🍅", "x": 36, "y": 70, "t": 12, "a": "pula"}]},
+          {"fundo": "casa", "texto": "Trim, trim! Toca o telefone.",
+           "atores": [{"e": "☎️", "x": 50, "y": 50, "t": 22, "a": "treme"}, {"e": "👩‍🏫", "x": 24, "y": 62, "t": 22}]},
+          {"fundo": "casa", "texto": "Todos tomam sopa juntos. Que delícia!",
+           "atores": [{"e": "👩‍🏫", "x": 40, "y": 62, "t": 22, "a": "balanca"}, {"e": "🍲", "x": 62, "y": 70, "t": 16, "a": "pulsa"}]}
+        ]
+      }
+    },
+    {
+      "id": "dado", "titulo": "Dado", "palavra": "dado", "familias": ["d"],
+      "palavras": ["dado", "dedo", "doce", "doze", "dente", "dinossauro", "diamante", "dinheiro", "doutor"],
+      "historia": {
+        "titulo": "O bode de sorte",
+        "cenas": [
+          {"fundo": "fazenda", "texto": "O bode achou um dado.",
+           "atores": [{"e": "🐐", "x": 34, "y": 66, "t": 28, "a": "entra"}, {"e": "🎲", "x": 66, "y": 78, "t": 12, "a": "aparece", "d": 0.6}]},
+          {"fundo": "fazenda", "texto": "O dado rola, rola, rola...",
+           "atores": [{"e": "🎲", "x": 55, "y": 78, "t": 14, "a": "rola"}, {"e": "🐐", "x": 22, "y": 68, "t": 24}]},
+          {"fundo": "fazenda", "texto": "Caiu no dedo do bode! Ai!",
+           "atores": [{"e": "🐐", "x": 45, "y": 66, "t": 28, "a": "treme"}, {"e": "🎲", "x": 52, "y": 62, "t": 10, "a": "cai"}]},
+          {"fundo": "fazenda", "texto": "Embaixo do dado tinha uma moeda!",
+           "atores": [{"e": "🪙", "x": 62, "y": 76, "t": 14, "a": "aparece"}, {"e": "🐐", "x": 34, "y": 66, "t": 26, "a": "pula"}]},
+          {"fundo": "fazenda", "texto": "Com a moeda, o bode comprou salada.",
+           "atores": [{"e": "🥗", "x": 62, "y": 72, "t": 18, "a": "aparece"}, {"e": "🐐", "x": 34, "y": 66, "t": 26, "a": "pulsa"}]},
+          {"fundo": "fazenda", "texto": "Que bode de sorte!",
+           "atores": [{"e": "🐐", "x": 50, "y": 64, "t": 30, "a": "pula"}]}
+        ]
+      }
+    },
+    {
+      "id": "fada", "titulo": "Fada", "palavra": "fada", "familias": ["f"],
+      "palavras": ["fada", "foca", "fita", "fogo", "foguete", "formiga", "fumaça", "festa", "fazenda", "fantasma", "futebol"],
+      "historia": {
+        "titulo": "A fada e a foca",
+        "cenas": [
+          {"fundo": "mar", "texto": "A fada voa sobre o mar.",
+           "atores": [{"e": "🧚", "x": 50, "y": 30, "t": 24, "a": "voa"}]},
+          {"fundo": "mar", "texto": "Ela vê uma foca triste.",
+           "atores": [{"e": "🦭", "x": 58, "y": 70, "t": 28, "a": "aparece"}, {"e": "🧚", "x": 24, "y": 30, "t": 18, "a": "flutua"}]},
+          {"fundo": "mar", "texto": "A fada faz uma mágica: plim!",
+           "atores": [{"e": "✨", "x": 56, "y": 54, "t": 22, "a": "aparece", "d": 0.6}, {"e": "🧚", "x": 28, "y": 32, "t": 20, "a": "gira"}, {"e": "🦭", "x": 58, "y": 72, "t": 24}]},
+          {"fundo": "mar", "texto": "A foca ganhou uma fita!",
+           "atores": [{"e": "🎀", "x": 58, "y": 56, "t": 12, "a": "aparece"}, {"e": "🦭", "x": 58, "y": 72, "t": 28, "a": "pula"}]},
+          {"fundo": "mar", "texto": "Agora a foca está feliz!",
+           "atores": [{"e": "🦭", "x": 52, "y": 70, "t": 30, "a": "pulsa"}, {"e": "🧚", "x": 24, "y": 28, "t": 18, "a": "flutua"}]}
+        ]
+      }
+    },
+    {
+      "id": "vaca", "titulo": "Vaca", "palavra": "vaca", "familias": ["v"],
+      "palavras": ["vaca", "vela", "vovó", "vovô", "vaso", "violão", "vulcão", "vassoura", "violino", "vestido"],
+      "historia": {
+        "titulo": "A vaca da vovó",
+        "cenas": [
+          {"fundo": "fazenda", "texto": "A vaca mora com a vovó.",
+           "atores": [{"e": "🐄", "x": 34, "y": 66, "t": 28, "a": "entra"}, {"e": "👵", "x": 70, "y": 66, "t": 22, "a": "aparece", "d": 0.6}]},
+          {"fundo": "fazenda", "texto": "A vovó dá uva para a vaca.",
+           "atores": [{"e": "🍇", "x": 52, "y": 60, "t": 14, "a": "aparece"}, {"e": "👵", "x": 72, "y": 66, "t": 22, "a": "balanca"}, {"e": "🐄", "x": 30, "y": 66, "t": 26}]},
+          {"fundo": "fazenda", "texto": "A vaca faz: muuu!",
+           "atores": [{"e": "🐄", "x": 46, "y": 64, "t": 30, "a": "pula"}]},
+          {"fundo": "fazenda", "texto": "O cavalo vem ver o que foi.",
+           "atores": [{"e": "🐴", "x": 68, "y": 64, "t": 28, "a": "entraDir"}, {"e": "🐄", "x": 30, "y": 66, "t": 26}]},
+          {"fundo": "noite", "texto": "De noite, a vovó acende a vela.",
+           "atores": [{"e": "🕯️", "x": 58, "y": 66, "t": 20, "a": "aparece"}, {"e": "👵", "x": 32, "y": 66, "t": 22}]},
+          {"fundo": "noite", "texto": "Boa noite, vaca! Boa noite, cavalo!",
+           "atores": [{"e": "🐄", "x": 34, "y": 68, "t": 22, "a": "balanca"}, {"e": "🐴", "x": 66, "y": 66, "t": 22, "a": "balanca"}]}
+        ]
+      }
+    },
+    {
+      "id": "lua", "titulo": "Lua", "palavra": "lua", "familias": ["l"],
+      "palavras": ["lua", "lobo", "lula", "lata", "lago", "leão", "limão", "lixo", "laço", "leite", "lápis", "livro", "laranja", "lâmpada"],
+      "historia": {
+        "titulo": "O lobo e a lua",
+        "cenas": [
+          {"fundo": "noite", "texto": "A lua brilha no céu.",
+           "atores": [{"e": "🌙", "x": 56, "y": 30, "t": 26, "a": "pulsa"}]},
+          {"fundo": "noite", "texto": "O lobo olha a lua e uiva: auuu!",
+           "atores": [{"e": "🐺", "x": 36, "y": 66, "t": 28, "a": "aparece"}, {"e": "🌙", "x": 68, "y": 24, "t": 18, "a": "flutua"}]},
+          {"fundo": "noite", "texto": "A lula também quer ver a lua.",
+           "atores": [{"e": "🦑", "x": 64, "y": 72, "t": 20, "a": "entraDir"}, {"e": "🐺", "x": 30, "y": 66, "t": 24}]},
+          {"fundo": "noite", "texto": "O leão chegou com um limão.",
+           "atores": [{"e": "🦁", "x": 62, "y": 66, "t": 26, "a": "entraDir"}, {"e": "🍋", "x": 44, "y": 74, "t": 12, "a": "aparece", "d": 0.6}, {"e": "🐺", "x": 24, "y": 66, "t": 20}]},
+          {"fundo": "noite", "texto": "Boa noite, lua! Boa noite, lobo!",
+           "atores": [{"e": "🌙", "x": 64, "y": 24, "t": 20, "a": "flutua"}, {"e": "🐺", "x": 36, "y": 66, "t": 24, "a": "balanca"}, {"e": "🦁", "x": 62, "y": 68, "t": 22, "a": "balanca"}]}
+        ]
+      }
+    },
+    {
+      "id": "macaco", "titulo": "Macaco", "palavra": "macaco", "familias": ["m"],
+      "palavras": ["macaco", "mala", "mapa", "moto", "mamute", "meia", "milho", "menino", "menina", "mochila", "moeda", "mágico", "melancia", "morango", "mão", "maçã"],
+      "historia": {
+        "titulo": "O macaco viajante",
+        "cenas": [
+          {"fundo": "casa", "texto": "O macaco fez a mala.",
+           "atores": [{"e": "🐒", "x": 35, "y": 66, "t": 26, "a": "entra"}, {"e": "🧳", "x": 64, "y": 74, "t": 16, "a": "aparece", "d": 0.5}]},
+          {"fundo": "casa", "texto": "Ele olhou o mapa.",
+           "atores": [{"e": "🗺️", "x": 58, "y": 48, "t": 22, "a": "aparece"}, {"e": "🐒", "x": 26, "y": 68, "t": 20, "a": "balanca"}]},
+          {"fundo": "campo", "texto": "O macaco subiu na moto. Vrum, vrum!",
+           "atores": [{"e": "🐒", "x": 50, "y": 60, "t": 16, "a": "anda"}, {"e": "🏍️", "x": 50, "y": 74, "t": 24, "a": "anda"}]},
+          {"fundo": "campo", "texto": "No caminho, viu um camelo.",
+           "atores": [{"e": "🐫", "x": 68, "y": 66, "t": 28, "a": "entraDir"}, {"e": "🐒", "x": 24, "y": 70, "t": 18}]},
+          {"fundo": "campo", "texto": "O camelo come tomate!",
+           "atores": [{"e": "🐫", "x": 62, "y": 66, "t": 28, "a": "pulsa"}, {"e": "🍅", "x": 36, "y": 76, "t": 14, "a": "pula"}]},
+          {"fundo": "campo", "texto": "Tchau, camelo! Até amanhã!",
+           "atores": [{"e": "🐒", "x": 38, "y": 66, "t": 24, "a": "pula"}, {"e": "🐫", "x": 68, "y": 66, "t": 26, "a": "balanca"}]}
+        ]
+      }
+    },
+    {
+      "id": "navio", "titulo": "Navio", "palavra": "navio", "familias": ["n"],
+      "palavras": ["navio", "neve", "nove", "novelo", "noite", "nuvem", "nariz", "nota", "número", "nadar"],
+      "historia": {
+        "titulo": "A noite do navio",
+        "cenas": [
+          {"fundo": "mar", "texto": "O navio navega no mar.",
+           "atores": [{"e": "🚢", "x": 50, "y": 66, "t": 30, "a": "anda"}]},
+          {"fundo": "noite", "texto": "De noite, aparece uma nuvem.",
+           "atores": [{"e": "☁️", "x": 50, "y": 26, "t": 22, "a": "flutua"}, {"e": "🚢", "x": 40, "y": 68, "t": 24}]},
+          {"fundo": "neve", "texto": "Da nuvem cai neve!",
+           "atores": [{"e": "❄️", "x": 40, "y": 40, "t": 12, "a": "cai"}, {"e": "❄️", "x": 62, "y": 46, "t": 12, "a": "cai", "d": 0.4}, {"e": "🚢", "x": 50, "y": 70, "t": 24}]},
+          {"fundo": "neve", "texto": "A menina conta os flocos até nove.",
+           "atores": [{"e": "👧", "x": 40, "y": 66, "t": 24, "a": "pula"}, {"e": "9️⃣", "x": 64, "y": 44, "t": 16, "a": "aparece"}]},
+          {"fundo": "noite", "texto": "Que noite linda no navio!",
+           "atores": [{"e": "🚢", "x": 50, "y": 68, "t": 28, "a": "balanca"}]}
+        ]
+      }
+    },
+    {
+      "id": "sapo", "titulo": "Sapo", "palavra": "sapo", "familias": ["s"],
+      "palavras": ["sapo", "sopa", "sapato", "sacola", "suco", "sofá", "sino", "sorvete", "sabão", "sol", "sereia", "sanduíche", "semáforo", "salada"],
+      "historia": {
+        "titulo": "O sapo na casa",
+        "cenas": [
+          {"fundo": "casa", "texto": "O sapo entrou na casa.",
+           "atores": [{"e": "🐸", "x": 34, "y": 72, "t": 24, "a": "entra"}]},
+          {"fundo": "casa", "texto": "Na mesa tem sopa e suco.",
+           "atores": [{"e": "🍲", "x": 42, "y": 62, "t": 18, "a": "aparece"}, {"e": "🧃", "x": 64, "y": 62, "t": 14, "a": "aparece", "d": 0.5}, {"e": "🐸", "x": 18, "y": 74, "t": 16}]},
+          {"fundo": "casa", "texto": "O sapo pula, pula... ploft!",
+           "atores": [{"e": "🐸", "x": 50, "y": 62, "t": 24, "a": "pula"}]},
+          {"fundo": "casa", "texto": "Caiu na sopa! Que sapo bobo!",
+           "atores": [{"e": "🍲", "x": 50, "y": 68, "t": 26, "a": "treme"}, {"e": "🐸", "x": 50, "y": 52, "t": 14, "a": "cai"}]},
+          {"fundo": "casa", "texto": "A pipoca pula também: pop, pop!",
+           "atores": [{"e": "🍿", "x": 62, "y": 66, "t": 20, "a": "pula"}, {"e": "🐸", "x": 30, "y": 70, "t": 18, "a": "balanca"}]}
+        ]
+      }
+    },
+    {
+      "id": "casa", "titulo": "Casa", "palavra": "casa", "familias": ["c"],
+      "palavras": ["casa", "cama", "cavalo", "coco", "copo", "cabelo", "casaco", "caneta", "cadeado", "camelo", "cometa", "coroa", "camisa", "caracol", "cueca", "cachorro", "coelho", "cobra"],
+      "historia": {
+        "titulo": "O cavalo e o coco",
+        "cenas": [
+          {"fundo": "fazenda", "texto": "O cavalo mora numa casa.",
+           "atores": [{"e": "🐴", "x": 40, "y": 64, "t": 28, "a": "entra"}, {"e": "🏠", "x": 78, "y": 54, "t": 24, "a": "aparece", "d": 0.5}]},
+          {"fundo": "casa", "texto": "Na casa tem um coco.",
+           "atores": [{"e": "🥥", "x": 56, "y": 70, "t": 16, "a": "aparece"}, {"e": "🐴", "x": 30, "y": 66, "t": 26}]},
+          {"fundo": "casa", "texto": "O cavalo bate no coco: toc, toc!",
+           "atores": [{"e": "🐴", "x": 34, "y": 66, "t": 26, "a": "pula"}, {"e": "🥥", "x": 58, "y": 70, "t": 14, "a": "treme"}]},
+          {"fundo": "casa", "texto": "Crac! O coco abriu. Que gostoso!",
+           "atores": [{"e": "🥥", "x": 56, "y": 70, "t": 16, "a": "pulsa"}, {"e": "🐴", "x": 32, "y": 66, "t": 24, "a": "balanca"}]},
+          {"fundo": "casa", "texto": "Depois o cavalo foi para a cama.",
+           "atores": [{"e": "🛏️", "x": 58, "y": 70, "t": 24, "a": "aparece"}, {"e": "🐴", "x": 32, "y": 66, "t": 24, "a": "balanca"}]}
+        ]
+      }
+    },
+    {
+      "id": "gato", "titulo": "Gato", "palavra": "gato", "familias": ["g"],
+      "palavras": ["gato", "galo", "gota", "galinha", "gorila", "garrafa", "garfo", "goleiro", "gorro"],
+      "historia": {
+        "titulo": "O gato mago",
+        "cenas": [
+          {"fundo": "noite", "texto": "O gato é um mago.",
+           "atores": [{"e": "🐱", "x": 40, "y": 68, "t": 28, "a": "aparece"}, {"e": "🪄", "x": 64, "y": 58, "t": 16, "a": "balanca"}]},
+          {"fundo": "noite", "texto": "Ele mexe o bigode e... puf!",
+           "atores": [{"e": "🐱", "x": 40, "y": 68, "t": 28, "a": "pulsa"}, {"e": "✨", "x": 64, "y": 52, "t": 22, "a": "aparece", "d": 1}]},
+          {"fundo": "noite", "texto": "Apareceu um galo!",
+           "atores": [{"e": "🐓", "x": 62, "y": 66, "t": 28, "a": "aparece"}, {"e": "🐱", "x": 28, "y": 70, "t": 22}]},
+          {"fundo": "noite", "texto": "O galo canta: có-có-ri-có!",
+           "atores": [{"e": "🐓", "x": 60, "y": 64, "t": 28, "a": "pula"}, {"e": "🐱", "x": 26, "y": 70, "t": 22, "a": "treme"}]},
+          {"fundo": "noite", "texto": "Uma gota caiu no gato. Plic!",
+           "atores": [{"e": "💧", "x": 38, "y": 50, "t": 10, "a": "cai"}, {"e": "🐱", "x": 38, "y": 70, "t": 24, "a": "treme", "d": 0.6}]},
+          {"fundo": "noite", "texto": "Agora o gato e o galo são amigos.",
+           "atores": [{"e": "🐱", "x": 36, "y": 70, "t": 24, "a": "balanca"}, {"e": "🐓", "x": 64, "y": 68, "t": 24, "a": "balanca"}]}
+        ]
+      }
+    },
+    {
+      "id": "janela", "titulo": "Janela", "palavra": "janela", "familias": ["j"],
+      "palavras": ["janela", "jabuti", "jacaré", "joaninha", "joia", "jipe", "jogo", "jornal", "joelho", "judô"],
+      "historia": {
+        "titulo": "O jabuti na janela",
+        "cenas": [
+          {"fundo": "casa", "texto": "O jabuti olha pela janela.",
+           "atores": [{"e": "🪟", "x": 64, "y": 42, "t": 30, "a": "aparece"}, {"e": "🐢", "x": 34, "y": 74, "t": 22, "a": "entra"}]},
+          {"fundo": "neve", "texto": "Lá fora caiu neve!",
+           "atores": [{"e": "⛄", "x": 50, "y": 66, "t": 28, "a": "aparece"}]},
+          {"fundo": "neve", "texto": "O menino e a menina brincam na neve.",
+           "atores": [{"e": "👦", "x": 34, "y": 68, "t": 24, "a": "pula"}, {"e": "👧", "x": 64, "y": 68, "t": 24, "a": "pula", "d": 0.3}]},
+          {"fundo": "casa", "texto": "O jabuti fica em casa e come banana.",
+           "atores": [{"e": "🐢", "x": 36, "y": 74, "t": 22, "a": "balanca"}, {"e": "🍌", "x": 62, "y": 68, "t": 16, "a": "aparece"}]},
+          {"fundo": "neve", "texto": "Que dia bonito!",
+           "atores": [{"e": "🐢", "x": 28, "y": 74, "t": 18, "a": "pulsa"}, {"e": "👦", "x": 54, "y": 68, "t": 20, "a": "pula"}, {"e": "👧", "x": 74, "y": 68, "t": 20, "a": "pula", "d": 0.3}]}
+        ]
+      }
+    },
+    {
+      "id": "rato", "titulo": "Rato", "palavra": "rato", "familias": ["r"],
+      "palavras": ["rato", "rede", "rosa", "remo", "rena", "rei", "rio", "rua", "robô", "raposa", "rinoceronte", "relógio"],
+      "historia": {
+        "titulo": "O rato pirata",
+        "cenas": [
+          {"fundo": "mar", "texto": "O rato é um pirata!",
+           "atores": [{"e": "🐭", "x": 40, "y": 62, "t": 26, "a": "aparece"}, {"e": "🏴‍☠️", "x": 64, "y": 40, "t": 18, "a": "balanca"}]},
+          {"fundo": "mar", "texto": "Ele rema, rema, rema no rio.",
+           "atores": [{"e": "🐭", "x": 50, "y": 62, "t": 16, "a": "anda"}, {"e": "🛶", "x": 50, "y": 74, "t": 28, "a": "anda"}]},
+          {"fundo": "mar", "texto": "Uma arara passa e diz: oi, rato!",
+           "atores": [{"e": "🦜", "x": 56, "y": 28, "t": 20, "a": "voa"}, {"e": "🐭", "x": 28, "y": 64, "t": 20}]},
+          {"fundo": "mar", "texto": "No rio tem um jacaré!",
+           "atores": [{"e": "🐊", "x": 62, "y": 74, "t": 30, "a": "entraDir"}, {"e": "🐭", "x": 24, "y": 64, "t": 20, "a": "treme"}]},
+          {"fundo": "mar", "texto": "O jacaré faz careta. Que medo!",
+           "atores": [{"e": "🐊", "x": 60, "y": 72, "t": 32, "a": "pulsa"}, {"e": "😜", "x": 60, "y": 44, "t": 14, "a": "aparece", "d": 0.5}, {"e": "🐭", "x": 24, "y": 64, "t": 18, "a": "treme"}]},
+          {"fundo": "mar", "texto": "Mas o jacaré só quer ser amigo. Oba!",
+           "atores": [{"e": "🐊", "x": 60, "y": 72, "t": 28, "a": "balanca"}, {"e": "🐭", "x": 30, "y": 64, "t": 22, "a": "pula"}]}
+        ]
+      }
+    },
+    {
+      "id": "xicara", "titulo": "Xícara", "palavra": "xícara", "familias": ["x"],
+      "palavras": ["xícara", "xadrez", "xampu", "peixe", "abacaxi", "caixa", "lixo", "bexiga", "roxo", "xerife"],
+      "historia": {
+        "titulo": "A bexiga sapeca",
+        "cenas": [
+          {"fundo": "casa", "texto": "A vovó pegou a xícara.",
+           "atores": [{"e": "👵", "x": 30, "y": 66, "t": 24, "a": "entra"}, {"e": "☕", "x": 62, "y": 64, "t": 16, "a": "aparece", "d": 0.5}]},
+          {"fundo": "casa", "texto": "Ela fez suco de abacaxi.",
+           "atores": [{"e": "🍍", "x": 42, "y": 64, "t": 18, "a": "aparece"}, {"e": "🧃", "x": 62, "y": 64, "t": 14, "a": "aparece", "d": 0.5}, {"e": "👵", "x": 18, "y": 66, "t": 20}]},
+          {"fundo": "casa", "texto": "Ops! Uma bexiga voou pela casa!",
+           "atores": [{"e": "🎈", "x": 50, "y": 34, "t": 20, "a": "voa"}, {"e": "👵", "x": 24, "y": 68, "t": 20, "a": "treme"}]},
+          {"fundo": "casa", "texto": "A bexiga caiu na caixa.",
+           "atores": [{"e": "📦", "x": 60, "y": 72, "t": 22, "a": "aparece"}, {"e": "🎈", "x": 60, "y": 50, "t": 16, "a": "cai", "d": 0.3}]},
+          {"fundo": "casa", "texto": "Que bexiga sapeca! A vovó riu.",
+           "atores": [{"e": "👵", "x": 36, "y": 66, "t": 24, "a": "pula"}, {"e": "🎈", "x": 64, "y": 40, "t": 16, "a": "flutua"}]}
+        ]
+      }
+    },
+    {
+      "id": "zebra", "titulo": "Zebra", "palavra": "zebra", "familias": ["z"],
+      "palavras": ["zebra", "zero", "zumbi", "doze", "azeitona", "buzina", "azedo", "zangado"],
+      "historia": {
+        "titulo": "A zebra conta até doze",
+        "cenas": [
+          {"fundo": "campo", "texto": "A zebra sabe contar.",
+           "atores": [{"e": "🦓", "x": 40, "y": 64, "t": 30, "a": "entra"}]},
+          {"fundo": "campo", "texto": "Ela conta do zero até doze.",
+           "atores": [{"e": "🕛", "x": 66, "y": 40, "t": 18, "a": "aparece"}, {"e": "🦓", "x": 32, "y": 64, "t": 26, "a": "balanca"}]},
+          {"fundo": "campo", "texto": "Bi, bi! Uma buzina assusta a zebra.",
+           "atores": [{"e": "📯", "x": 66, "y": 54, "t": 18, "a": "treme"}, {"e": "🦓", "x": 34, "y": 64, "t": 28, "a": "treme"}]},
+          {"fundo": "campo", "texto": "A zebra come uma azeitona.",
+           "atores": [{"e": "🫒", "x": 60, "y": 70, "t": 14, "a": "aparece"}, {"e": "🦓", "x": 36, "y": 64, "t": 28, "a": "pulsa"}]},
+          {"fundo": "campo", "texto": "Que azedo! A zebra faz careta.",
+           "atores": [{"e": "😖", "x": 60, "y": 40, "t": 16, "a": "aparece"}, {"e": "🦓", "x": 40, "y": 64, "t": 28, "a": "treme"}]}
+        ]
+      }
+    },
+    {
+      "id": "hipopotamo", "titulo": "Hipopótamo", "palavra": "hipopótamo", "familias": ["h"],
+      "palavras": ["hipopótamo", "hora", "hino", "herói", "hoje", "helicóptero", "hambúrguer", "hospital", "hotel"],
+      "historia": {
+        "titulo": "O hipopótamo herói",
+        "cenas": [
+          {"fundo": "mar", "texto": "O hipopótamo mora perto do mar.",
+           "atores": [{"e": "🦛", "x": 40, "y": 70, "t": 30, "a": "entra"}]},
+          {"fundo": "mar", "texto": "Hoje ele é um herói!",
+           "atores": [{"e": "🦸", "x": 64, "y": 46, "t": 22, "a": "aparece"}, {"e": "🦛", "x": 34, "y": 70, "t": 28, "a": "pula"}]},
+          {"fundo": "mar", "texto": "Ele salva um peixe da rede.",
+           "atores": [{"e": "🐟", "x": 62, "y": 74, "t": 16, "a": "pula"}, {"e": "🥅", "x": 74, "y": 64, "t": 16}, {"e": "🦛", "x": 34, "y": 70, "t": 28}]},
+          {"fundo": "mar", "texto": "Que hora é? Hora da festa!",
+           "atores": [{"e": "⏰", "x": 62, "y": 40, "t": 18, "a": "treme"}, {"e": "🎉", "x": 40, "y": 40, "t": 18, "a": "aparece", "d": 0.6}]},
+          {"fundo": "mar", "texto": "Todos cantam um hino: lá, lá, lá!",
+           "atores": [{"e": "🎶", "x": 60, "y": 38, "t": 18, "a": "flutua"}, {"e": "🦛", "x": 36, "y": 70, "t": 28, "a": "balanca"}, {"e": "🐟", "x": 70, "y": 76, "t": 14, "a": "pula"}]}
+        ]
+      }
+    },
+    {
+      "id": "queijo", "titulo": "Queijo", "palavra": "queijo", "familias": ["qu"],
+      "palavras": ["queijo", "quatro", "quadro", "periquito", "raquete", "aquário"],
+      "historia": {
+        "titulo": "O queijo do rato",
+        "cenas": [
+          {"fundo": "casa", "texto": "O rato achou um queijo.",
+           "atores": [{"e": "🐭", "x": 34, "y": 70, "t": 24, "a": "entra"}, {"e": "🧀", "x": 64, "y": 72, "t": 18, "a": "aparece", "d": 0.5}]},
+          {"fundo": "casa", "texto": "O periquito quer queijo também.",
+           "atores": [{"e": "🦜", "x": 62, "y": 40, "t": 22, "a": "voa"}, {"e": "🐭", "x": 30, "y": 70, "t": 22}]},
+          {"fundo": "casa", "texto": "Eles dividem o queijo.",
+           "atores": [{"e": "🐭", "x": 34, "y": 70, "t": 22, "a": "pulsa"}, {"e": "🧀", "x": 52, "y": 72, "t": 16}, {"e": "🦜", "x": 70, "y": 66, "t": 20, "a": "balanca"}]},
+          {"fundo": "casa", "texto": "Depois jogam com a raquete.",
+           "atores": [{"e": "🏸", "x": 50, "y": 44, "t": 20, "a": "gira"}, {"e": "🐭", "x": 26, "y": 70, "t": 20, "a": "pula"}, {"e": "🦜", "x": 74, "y": 66, "t": 20, "a": "pula", "d": 0.3}]},
+          {"fundo": "casa", "texto": "Que dupla divertida!",
+           "atores": [{"e": "🐭", "x": 38, "y": 70, "t": 24, "a": "pula"}, {"e": "🦜", "x": 62, "y": 66, "t": 24, "a": "pula", "d": 0.3}]}
+        ]
+      }
+    },
+    {
+      "id": "kiwi", "titulo": "K W Y", "rotulo": "K W Y", "palavra": "kiwi", "familias": ["k", "w", "y"],
+      "palavras": ["kiwi", "karatê", "koala", "yoga", "yakisoba"],
+      "historia": {
+        "titulo": "A turma do koala",
+        "cenas": [
+          {"fundo": "campo", "texto": "O koala come kiwi.",
+           "atores": [{"e": "🐨", "x": 38, "y": 64, "t": 26, "a": "entra"}, {"e": "🥝", "x": 62, "y": 70, "t": 14, "a": "aparece", "d": 0.5}]},
+          {"fundo": "campo", "texto": "A zebra faz yoga.",
+           "atores": [{"e": "🧘", "x": 60, "y": 64, "t": 24, "a": "aparece"}, {"e": "🦓", "x": 34, "y": 64, "t": 26, "a": "balanca"}]},
+          {"fundo": "campo", "texto": "O macaco luta karatê: hi-iá!",
+           "atores": [{"e": "🐒", "x": 50, "y": 62, "t": 28, "a": "pula"}, {"e": "🥋", "x": 70, "y": 60, "t": 16, "a": "gira"}]},
+          {"fundo": "campo", "texto": "Depois todos comem yakisoba.",
+           "atores": [{"e": "🍜", "x": 50, "y": 70, "t": 18, "a": "aparece"}, {"e": "🐨", "x": 28, "y": 64, "t": 20}, {"e": "🐒", "x": 72, "y": 64, "t": 20, "a": "pulsa"}]},
+          {"fundo": "campo", "texto": "Que turma divertida!",
+           "atores": [{"e": "🐨", "x": 30, "y": 64, "t": 22, "a": "pula"}, {"e": "🦓", "x": 52, "y": 64, "t": 22, "a": "pula", "d": 0.2}, {"e": "🐒", "x": 72, "y": 64, "t": 22, "a": "pula", "d": 0.4}]}
+        ]
+      }
+    },
+    {
+      "id": "cebola", "titulo": "Cebola", "rotulo": "CE CI Ç", "secao": "especial", "palavra": "cebola", "familias": ["ce", "ç"],
+      "palavras": ["cebola", "cenoura", "cidade", "doce", "taça", "laço", "maçã", "cinema"],
+      "historia": {
+        "titulo": "O coelho e a cenoura",
+        "cenas": [
+          {"fundo": "fazenda", "texto": "A vovó plantou cebola e cenoura.",
+           "atores": [{"e": "👵", "x": 28, "y": 66, "t": 24, "a": "entra"}, {"e": "🧅", "x": 56, "y": 76, "t": 12, "a": "aparece"}, {"e": "🥕", "x": 70, "y": 76, "t": 12, "a": "aparece", "d": 0.4}]},
+          {"fundo": "fazenda", "texto": "Um coelho viu a cenoura.",
+           "atores": [{"e": "🐰", "x": 66, "y": 68, "t": 22, "a": "entraDir"}, {"e": "🥕", "x": 48, "y": 76, "t": 12}]},
+          {"fundo": "fazenda", "texto": "Ele pegou a cenoura e correu!",
+           "atores": [{"e": "🐰", "x": 50, "y": 68, "t": 22, "a": "anda"}, {"e": "🥕", "x": 50, "y": 80, "t": 10, "a": "anda"}]},
+          {"fundo": "fazenda", "texto": "A vovó deu um doce para ele.",
+           "atores": [{"e": "🍭", "x": 50, "y": 56, "t": 16, "a": "aparece"}, {"e": "👵", "x": 30, "y": 66, "t": 24, "a": "balanca"}, {"e": "🐰", "x": 66, "y": 68, "t": 20}]},
+          {"fundo": "fazenda", "texto": "Agora eles são amigos!",
+           "atores": [{"e": "👵", "x": 34, "y": 66, "t": 24, "a": "pulsa"}, {"e": "🐰", "x": 62, "y": 68, "t": 22, "a": "pula"}]}
+        ]
+      }
+    },
+    {
+      "id": "girafa", "titulo": "Girafa", "rotulo": "GE GI", "secao": "especial", "palavra": "girafa", "familias": ["ge", "gu"],
+      "palavras": ["girafa", "gelo", "tigela", "gelatina", "mágico", "foguete", "fogueira"],
+      "historia": {
+        "titulo": "A festa da girafa",
+        "cenas": [
+          {"fundo": "campo", "texto": "A girafa é muito alta.",
+           "atores": [{"e": "🦒", "x": 44, "y": 56, "t": 44, "a": "entra"}]},
+          {"fundo": "campo", "texto": "Ela come gelatina na tigela.",
+           "atores": [{"e": "🍮", "x": 66, "y": 68, "t": 14, "a": "aparece"}, {"e": "🥣", "x": 66, "y": 80, "t": 12, "a": "aparece"}, {"e": "🦒", "x": 36, "y": 56, "t": 40}]},
+          {"fundo": "campo", "texto": "Um foguete passa no céu!",
+           "atores": [{"e": "🚀", "x": 50, "y": 24, "t": 20, "a": "voa"}, {"e": "🦒", "x": 30, "y": 56, "t": 40, "a": "treme"}]},
+          {"fundo": "campo", "texto": "Um mágico faz gelo: plim!",
+           "atores": [{"e": "🧙", "x": 64, "y": 64, "t": 24, "a": "aparece"}, {"e": "✨", "x": 48, "y": 48, "t": 14, "a": "aparece", "d": 0.6}, {"e": "🧊", "x": 44, "y": 70, "t": 14, "a": "aparece", "d": 0.9}]},
+          {"fundo": "campo", "texto": "A girafa adorou a festa!",
+           "atores": [{"e": "🦒", "x": 40, "y": 56, "t": 40, "a": "pulsa"}, {"e": "🎉", "x": 66, "y": 36, "t": 18, "a": "aparece"}]}
+        ]
+      }
+    },
+    {
+      "id": "chuva", "titulo": "Chuva", "rotulo": "CH", "secao": "especial", "palavra": "chuva", "familias": ["ch"],
+      "palavras": ["chuva", "chave", "chocolate", "chinelo", "mochila", "bicho", "chá", "chapéu"],
+      "historia": {
+        "titulo": "Dia de chuva",
+        "cenas": [
+          {"fundo": "campo", "texto": "Lá fora cai chuva.",
+           "atores": [{"e": "🌧️", "x": 30, "y": 20, "t": 18, "a": "flutua"}, {"e": "🌧️", "x": 66, "y": 16, "t": 16, "a": "flutua"}, {"e": "💧", "x": 40, "y": 52, "t": 8, "a": "cai"}, {"e": "💧", "x": 60, "y": 58, "t": 8, "a": "cai", "d": 0.4}]},
+          {"fundo": "campo", "texto": "A menina pega a mochila e o chapéu.",
+           "atores": [{"e": "👧", "x": 36, "y": 66, "t": 26, "a": "aparece"}, {"e": "🎒", "x": 60, "y": 70, "t": 16, "a": "aparece", "d": 0.4}, {"e": "🎩", "x": 72, "y": 56, "t": 14, "a": "aparece", "d": 0.8}]},
+          {"fundo": "campo", "texto": "Ela calça o chinelo e pula na água!",
+           "atores": [{"e": "👧", "x": 46, "y": 62, "t": 26, "a": "pula"}, {"e": "🩴", "x": 46, "y": 82, "t": 10, "a": "pula"}, {"e": "💧", "x": 60, "y": 80, "t": 8, "a": "pulsa"}]},
+          {"fundo": "casa", "texto": "Depois toma chá com chocolate.",
+           "atores": [{"e": "🍵", "x": 46, "y": 64, "t": 16, "a": "aparece"}, {"e": "🍫", "x": 64, "y": 66, "t": 14, "a": "aparece", "d": 0.4}, {"e": "👧", "x": 24, "y": 66, "t": 24}]},
+          {"fundo": "casa", "texto": "Que dia gostoso!",
+           "atores": [{"e": "👧", "x": 44, "y": 66, "t": 28, "a": "pulsa"}]}
+        ]
+      }
+    },
+    {
+      "id": "galinha", "titulo": "Galinha", "rotulo": "NH", "secao": "especial", "palavra": "galinha", "familias": ["nh"],
+      "palavras": ["galinha", "aranha", "minhoca", "banho", "unha", "joaninha", "sonho"],
+      "historia": {
+        "titulo": "O ovo da galinha",
+        "cenas": [
+          {"fundo": "fazenda", "texto": "A galinha chocou um ovo.",
+           "atores": [{"e": "🐔", "x": 40, "y": 64, "t": 28, "a": "entra"}, {"e": "🥚", "x": 62, "y": 76, "t": 12, "a": "aparece", "d": 0.5}]},
+          {"fundo": "fazenda", "texto": "Uma minhoca passou: oi, galinha!",
+           "atores": [{"e": "🪱", "x": 66, "y": 80, "t": 14, "a": "entraDir"}, {"e": "🐔", "x": 36, "y": 64, "t": 26}]},
+          {"fundo": "fazenda", "texto": "Uma aranha desceu para ver.",
+           "atores": [{"e": "🕷️", "x": 60, "y": 30, "t": 14, "a": "cai"}, {"e": "🐔", "x": 34, "y": 64, "t": 26, "a": "treme"}]},
+          {"fundo": "fazenda", "texto": "Crec! Saiu um pintinho do ovo!",
+           "atores": [{"e": "🐣", "x": 56, "y": 72, "t": 20, "a": "aparece"}, {"e": "🐔", "x": 32, "y": 64, "t": 26, "a": "pula"}]},
+          {"fundo": "fazenda", "texto": "A joaninha voa. Que dia feliz!",
+           "atores": [{"e": "🐞", "x": 56, "y": 34, "t": 14, "a": "voa"}, {"e": "🐣", "x": 60, "y": 72, "t": 18, "a": "pula"}, {"e": "🐔", "x": 32, "y": 64, "t": 24, "a": "balanca"}]}
+        ]
+      }
+    },
+    {
+      "id": "coelho", "titulo": "Coelho", "rotulo": "LH", "secao": "especial", "palavra": "coelho", "familias": ["lh"],
+      "palavras": ["coelho", "folha", "olho", "milho", "orelha", "palhaço", "baralho", "abelha", "ilha"],
+      "historia": {
+        "titulo": "O coelho orelhudo",
+        "cenas": [
+          {"fundo": "campo", "texto": "O coelho tem orelha grande.",
+           "atores": [{"e": "🐰", "x": 44, "y": 64, "t": 30, "a": "aparece"}]},
+          {"fundo": "campo", "texto": "Ele come milho e folha.",
+           "atores": [{"e": "🌽", "x": 64, "y": 70, "t": 16, "a": "aparece"}, {"e": "🍃", "x": 72, "y": 56, "t": 12, "a": "flutua"}, {"e": "🐰", "x": 36, "y": 64, "t": 28, "a": "pulsa"}]},
+          {"fundo": "campo", "texto": "Uma abelha pousou na orelha dele.",
+           "atores": [{"e": "🐝", "x": 50, "y": 32, "t": 12, "a": "voa"}, {"e": "🐰", "x": 40, "y": 64, "t": 28, "a": "treme"}]},
+          {"fundo": "campo", "texto": "O coelho pula: ui, ui!",
+           "atores": [{"e": "🐰", "x": 50, "y": 60, "t": 28, "a": "pula"}]},
+          {"fundo": "campo", "texto": "Chega um palhaço e todos riem!",
+           "atores": [{"e": "🤡", "x": 66, "y": 62, "t": 26, "a": "entraDir"}, {"e": "🐰", "x": 34, "y": 66, "t": 24, "a": "pula"}]}
+        ]
+      }
+    },
+    {
+      "id": "carro", "titulo": "Carro", "rotulo": "RR SS", "secao": "especial", "palavra": "carro", "familias": ["rr", "ss"],
+      "palavras": ["carro", "cachorro", "terra", "gorro", "pássaro", "osso", "massa"],
+      "historia": {
+        "titulo": "O passeio do cachorro",
+        "cenas": [
+          {"fundo": "campo", "texto": "O cachorro anda de carro.",
+           "atores": [{"e": "🐶", "x": 50, "y": 56, "t": 14, "a": "anda"}, {"e": "🚗", "x": 50, "y": 72, "t": 28, "a": "anda"}]},
+          {"fundo": "campo", "texto": "Bi, bi! Um pássaro passa voando.",
+           "atores": [{"e": "🐦", "x": 50, "y": 28, "t": 16, "a": "voa"}, {"e": "🚗", "x": 40, "y": 72, "t": 24}]},
+          {"fundo": "campo", "texto": "O carro para perto da árvore.",
+           "atores": [{"e": "🚗", "x": 30, "y": 72, "t": 24, "a": "entraDir"}, {"e": "🐶", "x": 30, "y": 58, "t": 12, "a": "entraDir"}]},
+          {"fundo": "campo", "texto": "O cachorro acha um osso na terra!",
+           "atores": [{"e": "🦴", "x": 60, "y": 78, "t": 12, "a": "aparece"}, {"e": "🐶", "x": 40, "y": 68, "t": 24, "a": "pula"}]},
+          {"fundo": "campo", "texto": "De gorro, ele come massa. Que passeio!",
+           "atores": [{"e": "🧢", "x": 44, "y": 52, "t": 12, "a": "aparece"}, {"e": "🐶", "x": 44, "y": 66, "t": 24, "a": "pulsa"}, {"e": "🍝", "x": 66, "y": 72, "t": 14, "a": "aparece", "d": 0.4}]}
+        ]
+      }
+    },
+    {
+      "id": "pao", "titulo": "Pão", "rotulo": "ÃO", "secao": "especial", "palavra": "pão", "familias": ["ão"],
+      "palavras": ["pão", "mão", "cão", "leão", "balão", "limão", "avião", "sabão"],
+      "historia": {
+        "titulo": "O lanche do leão",
+        "cenas": [
+          {"fundo": "campo", "texto": "O leão comprou pão.",
+           "atores": [{"e": "🦁", "x": 36, "y": 64, "t": 28, "a": "entra"}, {"e": "🍞", "x": 64, "y": 72, "t": 14, "a": "aparece", "d": 0.5}]},
+          {"fundo": "campo", "texto": "Um avião passa no céu.",
+           "atores": [{"e": "✈️", "x": 50, "y": 22, "t": 18, "a": "voa"}, {"e": "🦁", "x": 34, "y": 64, "t": 26}]},
+          {"fundo": "campo", "texto": "Um balão sobe, sobe...",
+           "atores": [{"e": "🎈", "x": 60, "y": 40, "t": 18, "a": "flutua"}, {"e": "🦁", "x": 30, "y": 64, "t": 26, "a": "balanca"}]},
+          {"fundo": "campo", "texto": "O cão pega o balão com a mão!",
+           "atores": [{"e": "🐕", "x": 56, "y": 66, "t": 24, "a": "pula"}, {"e": "🎈", "x": 56, "y": 40, "t": 16, "a": "flutua"}]},
+          {"fundo": "campo", "texto": "Todos comem pão. Que lanche bom!",
+           "atores": [{"e": "🦁", "x": 34, "y": 64, "t": 26, "a": "pulsa"}, {"e": "🐕", "x": 62, "y": 66, "t": 22, "a": "pulsa"}, {"e": "🍞", "x": 48, "y": 76, "t": 12}]}
+        ]
+      }
+    },
+    {
+      "id": "prato", "titulo": "Prato", "rotulo": "BR PR TR", "secao": "especial", "palavra": "prato", "familias": ["pr", "br", "tr", "fr", "gr"],
+      "palavras": ["prato", "praia", "cobra", "bruxa", "zebra", "fruta", "tigre", "grilo", "trigo"],
+      "historia": {
+        "titulo": "A bruxa boazinha",
+        "cenas": [
+          {"fundo": "noite", "texto": "Uma bruxa voa no céu.",
+           "atores": [{"e": "🧙‍♀️", "x": 50, "y": 30, "t": 24, "a": "voa"}]},
+          {"fundo": "noite", "texto": "Ela vê um tigre e uma cobra.",
+           "atores": [{"e": "🐯", "x": 36, "y": 68, "t": 24, "a": "aparece"}, {"e": "🐍", "x": 66, "y": 72, "t": 20, "a": "aparece", "d": 0.4}, {"e": "🧙‍♀️", "x": 60, "y": 26, "t": 16, "a": "flutua"}]},
+          {"fundo": "noite", "texto": "A bruxa faz mágica: tudo vira fruta!",
+           "atores": [{"e": "✨", "x": 50, "y": 50, "t": 18, "a": "aparece"}, {"e": "🍓", "x": 40, "y": 70, "t": 12, "a": "aparece", "d": 0.6}, {"e": "🍌", "x": 60, "y": 70, "t": 12, "a": "aparece", "d": 0.9}]},
+          {"fundo": "noite", "texto": "O tigre come fruta no prato.",
+           "atores": [{"e": "🍽️", "x": 56, "y": 74, "t": 16, "a": "aparece"}, {"e": "🐯", "x": 34, "y": 66, "t": 24, "a": "pulsa"}]},
+          {"fundo": "noite", "texto": "E o grilo canta: cri, cri, cri!",
+           "atores": [{"e": "🦗", "x": 56, "y": 72, "t": 16, "a": "pula"}, {"e": "🧙‍♀️", "x": 30, "y": 30, "t": 16, "a": "flutua"}]}
+        ]
+      }
+    },
+    {
+      "id": "planeta", "titulo": "Planeta", "rotulo": "BL PL CL", "secao": "especial", "palavra": "planeta", "familias": ["pl", "bl", "cl", "fl", "gl"],
+      "palavras": ["planeta", "placa", "bloco", "blusa", "bicicleta", "teclado", "flecha", "globo"],
+      "historia": {
+        "titulo": "O sonho do menino",
+        "cenas": [
+          {"fundo": "noite", "texto": "O menino olha o céu.",
+           "atores": [{"e": "👦", "x": 36, "y": 68, "t": 26, "a": "aparece"}]},
+          {"fundo": "noite", "texto": "Ele vê um planeta e um cometa!",
+           "atores": [{"e": "🪐", "x": 64, "y": 30, "t": 20, "a": "gira"}, {"e": "☄️", "x": 40, "y": 24, "t": 14, "a": "voa"}, {"e": "👦", "x": 30, "y": 68, "t": 22}]},
+          {"fundo": "noite", "texto": "Ele sonha que voa de bicicleta.",
+           "atores": [{"e": "🚲", "x": 50, "y": 44, "t": 22, "a": "voa"}, {"e": "👦", "x": 50, "y": 30, "t": 14, "a": "voa"}]},
+          {"fundo": "noite", "texto": "No planeta, ele joga bola.",
+           "atores": [{"e": "🪐", "x": 50, "y": 66, "t": 30, "a": "aparece"}, {"e": "⚽", "x": 66, "y": 40, "t": 12, "a": "pula"}, {"e": "👦", "x": 38, "y": 42, "t": 16, "a": "pula"}]},
+          {"fundo": "noite", "texto": "Que sonho lindo!",
+           "atores": [{"e": "👦", "x": 44, "y": 68, "t": 26, "a": "pulsa"}, {"e": "💭", "x": 64, "y": 40, "t": 20, "a": "flutua"}]}
+        ]
+      }
+    }
+  ]
+}

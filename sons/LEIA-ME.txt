@@ -1,0 +1,1 @@
+Vozes dos sons das letras gravadas por pais (uma pasta por voz). Ver ferramentas/sons.py.
