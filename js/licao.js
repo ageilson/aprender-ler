@@ -2,7 +2,7 @@
 
 import {
   dados, licao, falaSilaba, falaSilabaDe, falaLetra, falaPalavra, preencher, semAcento,
-  sortear, palavrasPossiveis, decompor, simples, separarSilaba, juntavel, falaConsoante, falaVogais, falaFamilia,
+  sortear, palavrasPossiveis, linhasDaDescoberta, simples, separarSilaba, juntavel, falaConsoante, falaVogais, falaFamilia,
 } from './dados.js';
 import { falar, falarSequencia, precarregar } from './voz.js';
 import { escrito, resolverModo, transformar, classeDe } from './escrita.js';
@@ -77,7 +77,13 @@ function atvPalavra(area, l) {
     sil.forEach((el, i) => { el.dataset.k = 's' + i; });
     const inteira = escrito('div', atual, { modo: m, classe: 'palavra-inteira', fala: fPal });
     inteira.dataset.k = 'p';
-    const letras = [...atual].map((c, i) => escrito('span', c, { modo: m, classe: 'letra', fala: falaDaLetra(c, atual[i + 1] || '') }));
+    // Em PINGUIM o U é pronunciado. Em GUITARRA, GU representa um só som.
+    const grupos = ehFonico() ? /ch|nh|lh|rr|ss|qu(?=[eiéêí])|gu(?=[eiéêí])(?!im)|./gu : /./gu;
+    const letras = Array.from(atual.matchAll(grupos), ({ 0: c, index: i }) => {
+      const fala = ehFonico() && p.sonsPorPosicao?.[i] ? 'som:' + p.sonsPorPosicao[i]
+        : falaDaLetra(c, atual[i + c.length] || '', atual.slice(0, i));
+      return escrito('span', c, { modo: m, classe: 'letra', fala });
+    });
     const devagar = botao('Ouvir devagar', async () => {
       const ok = await falarSequencia([...p.s.map((_, i) => falaSilabaDe(atual, i)), fPal], {
         aoItem: (i) => destacar([...sil, inteira], i), pausa: 350,
@@ -215,12 +221,13 @@ function atvJuntar(area, l) {
   const d = dados();
   const p = d.palavras[l.palavra];
   // até 4 sílabas da palavra geradora e o resto (até 6 rodadas) sorteado das famílias da lição
-  const rodadas = p.s.map((s, i) => ({ s, f: falaSilabaDe(l.palavra, i) })).filter((x) => juntavel(x.s)).slice(0, 4);
+  const rodadas = p.s.map((s, i) => ({ s, f: falaSilabaDe(l.palavra, i), anterior: p.s.slice(0, i).join('') })).filter((x) => juntavel(x.s)).slice(0, 4);
   const daFamilia = sortear(l.familias.flatMap((f) => d.familias[f]).filter((s) => juntavel(s) && !p.s.includes(s)), Math.max(2, 6 - rodadas.length))
     .map((s) => ({ s, f: falaSilaba(s) }));
-  const todas = [...rodadas, ...daFamilia].map(({ s, f }) => {
+  const todas = [...rodadas, ...daFamilia].map(({ s, f, anterior }) => {
     const { consoante, vogal } = separarSilaba(s);
-    return { a: consoante, b: vogal, fa: falaDaLetra(consoante, vogal), fb: falaDasVogais(vogal), junto: s, fj: f };
+    const timbre = ehFonico() && vogal.length === 1 && /[éêóô]$/.test(f) ? f.at(-1) : vogal;
+    return { a: consoante, b: vogal, fa: falaDaLetra(consoante, vogal, anterior), fb: falaDasVogais(timbre), junto: s, fj: f };
   });
   mesaDeJuntar(area, todas, (mesa, resultado, acoes) => {
     // fim: as sílabas da palavra geradora viram a palavra
@@ -285,20 +292,13 @@ function atvFamilia(area, l) {
 // ------------------------------------------------------------------ descoberta (ficha da descoberta)
 function atvDescoberta(area, l) {
   const d = dados();
-  // peças (filas): vogais, as famílias desta lição inteiras e uma fila com as peças de outras famílias
-  // que montam as palavras desta lição (CACHORRO = CA + CHO + RRO). Só conta como "dá para descobrir"
-  // a palavra que se monta com as peças que estão na tela.
-  const linhas = [['vogais', d.familias.vogais], ...l.familias.map((f) => [f, d.familias[f]])];
-  const naTela = new Set(linhas.flatMap(([, sil]) => sil).map(simples));
-  // as lições podem ser feitas em qualquer ordem (de A a Z ou do fácil ao difícil): usa todas as famílias
-  const conhecidasAte = Object.values(d.familias).flat();
-  const original = new Map(conhecidasAte.map((s) => [simples(s), s]));
-  const outras = [...new Set(l.palavras.flatMap((w) => decompor(w, conhecidasAte) || []))]
-    .filter((p) => !naTela.has(p)).map((p) => original.get(p));
-  if (outras.length) linhas.push(['outras', outras]);
+  const linhas = linhasDaDescoberta(l);
   const pecas = linhas.flatMap(([, sil]) => sil);
   const conhecidas = new Set(palavrasPossiveis(pecas));
   const comp = [];
+  let palavraPronta = null;
+  const confirmar = botao('Descobri!', () => receber(palavraPronta), 'verde', '🔍');
+  confirmar.hidden = true;
   let ocupado = false;
   let ganhou = temEstrela(l.id, 'descoberta');
   const meta = Math.max(1, Math.min(3, l.palavras.filter((w) => conhecidas.has(w)).length));
@@ -315,9 +315,32 @@ function atvDescoberta(area, l) {
   }
   const m = resolverModo();
   function desenharComp() {
+    const texto = simples(comp.join(''));
+    const iguais = [...conhecidas].filter((w) => simples(w) === texto);
+    palavraPronta = iguais.find((w) => l.palavras.includes(w)) || iguais[0];
+    confirmar.hidden = !palavraPronta || ocupado;
     caixa.replaceChildren(...(comp.length
       ? comp.map((s) => escrito('span', s, { modo: m, classe: 'silaba', fala: falaSilaba(s) }))
       : [h('span', { class: 'vazio' }, 'toque nas sílabas aqui embaixo 👇')]));
+  }
+
+  async function receber(w) {
+    if (!w || ocupado) return;
+    ocupado = true;
+    confirmar.hidden = true;
+    await esperar(550);
+    somAcerto();
+    confete(30);
+    mostrarGrande(d.palavras[w].e);
+    caixa.replaceChildren(escrito('span', w, { modo: m, classe: 'silaba', fala: falaPalavra(w) }), emoji(d.palavras[w].e, '', { style: 'font-size:64px' }));
+    await falarSequencia([falaPalavra(w), umElogio()], { pausa: 200 });
+    descobrir(l.id, w);
+    desenharDicas();
+    comp.length = 0;
+    ocupado = false;
+    desenharComp();
+    const daLicao = descobertas(l.id).filter((x) => l.palavras.includes(x)).length;
+    if (!ganhou && daLicao >= meta) { ganhou = true; concluir(l.id, 'descoberta', '🔍'); }
   }
 
   async function apertar(s) {
@@ -325,24 +348,11 @@ function atvDescoberta(area, l) {
     comp.push(s);
     desenharComp();
     const texto = simples(comp.join(''));
-    const achadas = [...conhecidas].filter((w) => simples(w) === texto);
-    if (achadas.length) {
-      ocupado = true;
-      const w = achadas.find((x) => l.palavras.includes(x)) || achadas[0];
-      await esperar(550);
-      somAcerto();
-      confete(30);
-      mostrarGrande(d.palavras[w].e);
-      caixa.replaceChildren(escrito('span', w, { modo: m, classe: 'silaba', fala: falaPalavra(w) }), emoji(d.palavras[w].e, '', { style: 'font-size:64px' }));
-      await falarSequencia([falaPalavra(w), umElogio()], { pausa: 200 });
-      descobrir(l.id, w);
-      desenharDicas();
-      comp.length = 0;
-      desenharComp();
-      ocupado = false;
-      const daLicao = descobertas(l.id).filter((x) => l.palavras.includes(x)).length;
-      if (!ganhou && daLicao >= meta) { ganhou = true; concluir(l.id, 'descoberta', '🔍'); }
-    } else if (comp.length >= 5) {
+    // CASA já é uma palavra e também pode continuar até CASACO.
+    const podeContinuar = [...conhecidas].some((w) => simples(w).length > texto.length && simples(w).startsWith(texto));
+    if (palavraPronta && !podeContinuar) {
+      await receber(palavraPronta);
+    } else if (!palavraPronta && !podeContinuar && comp.length >= 5) {
       ocupado = true;
       await esperar(500);
       await falar(d.frases.naoConheco);
@@ -364,6 +374,7 @@ function atvDescoberta(area, l) {
   area.append(
     h('p', { class: 'dica' }, 'Toque numa figura para ouvir. Junte as sílabas para escrever!'), dicas, caixa,
     h('div', { class: 'acoes' },
+      confirmar,
       botao('Ler', () => {
         const chips = [...caixa.querySelectorAll('.silaba')];
         falarSequencia(comp.map(falaSilaba), { aoItem: (i) => destacar(chips, i), pausa: 150 });
@@ -387,7 +398,7 @@ function atvVogais(area, l) {
     return h('div', { class: 'vogal-card', dataset: { v } },
       grande,
       h('div', { class: 'formas ler-arrasto' }, ['maiuscula', 'minuscula', 'cursiva'].map((mm) => escrito('span', v, { modo: mm, fala: fv }))),
-      h('span', { class: 'emoji', dataset: { fala: preencher(d.frases.alfabeto, { x: fv, y: info.palavra }) } }, info.emoji),
+      h('span', { class: 'emoji', dataset: { fala: ehFonico() ? falaPalavra(info.palavra) : preencher(d.frases.alfabeto, { x: fv, y: info.palavra }) } }, info.emoji),
       escrito('span', info.palavra, { classe: 'nome', fala: falaPalavra(info.palavra) }));
   });
   const grade = h('div', { class: 'vogais-grade' }, cards);

@@ -188,7 +188,9 @@ export function atvCaca(area, l) {
     }
     const alvo = novoAlvo(letrasLicao);
     const todas = Object.keys(d.letras).filter((x) => x !== alvo);
-    const resto = sortear([...sortear(letrasLicao.filter((x) => x !== alvo), 3), ...sortear(todas, 4)].filter((x, i, a) => a.indexOf(x) === i), 5);
+    const somAlvo = falaDaLetra(alvo);
+    const resto = sortear([...new Set([...sortear(letrasLicao, 4), ...sortear(todas)])]
+      .filter((x) => x !== alvo && falaDaLetra(x) !== somAlvo).slice(0, 5));
     // no fônico a pergunta é "Qual letra faz este som?" seguida do som
     return { alvo, itens: [alvo, ...resto], fala: (x) => falaDaLetra(x), frase: ehFonico() ? null : d.frases.caca.letra };
   }
@@ -320,7 +322,7 @@ function rodadas(area, l, { total, chave, icone, dica, rodada, recomecar }) {
       caixa.replaceChildren(h('div', { class: 'acoes' }, botao('Jogar de novo', () => { area.replaceChildren(); recomecar(area, l); }, 'verde', '🔁')));
       return;
     }
-    rodada(caixa, feitas, () => { feitas++; proxima(); });
+    rodada(caixa, feitas, () => { if (caixa.isConnected) { feitas++; proxima(); } });
   };
   proxima();
 }
@@ -330,6 +332,78 @@ function errada(b) {
   void b.offsetWidth;
   b.classList.add('errada');
 }
+
+// Cada grupo foi escolhido pelo som. Por exemplo, CHUVA e XÍCARA começam igual.
+function gruposDeEscuta(rima) {
+  const d = dados();
+  return rima ? d.rimas.map((palavras) => ({ palavras }))
+    : Object.entries(d.exemplosDeSom).map(([som, palavras]) => ({ som, palavras }));
+}
+
+export function temExemploDeEscuta(l, rima) {
+  return gruposDeEscuta(rima).some((g) => g.palavras.some((p) => l.palavras?.includes(p)));
+}
+
+function escutarFiguras(area, l, rima) {
+  const d = dados();
+  const grupos = gruposDeEscuta(rima);
+  const candidatos = grupos.flatMap((grupo) => grupo.palavras
+    .filter((p) => l.id === 'todas' || l.palavras.includes(p)).map((palavra) => ({ grupo, palavra })));
+  const partida = sortear(candidatos, 5);
+  const pedido = rima ? d.frases.ouvirRima : d.frases.ouvirInicio;
+  rodadas(area, l, {
+    total: partida.length, chave: rima ? 'rimas' : 'som-inicial', icone: rima ? '🎵' : '🕵️',
+    dica: pedido, recomecar: rima ? atvRimas : atvSomInicial,
+    rodada(caixa, n, pronto) {
+      const { grupo, palavra } = partida[n];
+      const certa = rima ? umDe(grupo.palavras.filter((p) => p !== palavra)) : palavra;
+      const pista = rima ? falaPalavra(palavra) : 'som:' + grupo.som;
+      const figuras = new Set([d.palavras[certa].e, d.palavras[palavra].e]);
+      const opcoes = [certa];
+      for (const outro of sortear(grupos.filter((g) => g !== grupo))) {
+        const p = umDe(outro.palavras.filter((w) => !figuras.has(d.palavras[w].e)));
+        if (!p) continue;
+        opcoes.push(p);
+        figuras.add(d.palavras[p].e);
+        if (opcoes.length === 3) break;
+      }
+      const palavras = sortear(opcoes);
+      const botoes = palavras.map((p) => h('button', { class: 'opcao figura-opcao' },
+        emoji(d.palavras[p].e, '', { 'aria-hidden': true }), escrito('span', p, { classe: 'nome-figura' })));
+      let resolvida = false;
+      botoes.forEach((b, i) => b.addEventListener('click', async () => {
+        if (resolvida) return;
+        const p = palavras[i];
+        if (p !== certa) {
+          errada(b);
+          somErro();
+          await falarSequencia([falaPalavra(p), pista]);
+          return;
+        }
+        resolvida = true;
+        b.classList.add('certa');
+        somAcerto();
+        await falarSequencia([pista, falaPalavra(p)]);
+        pronto();
+      }));
+      const ouvir = () => falarSequencia([pedido, pista]);
+      caixa.replaceChildren(
+        h('div', { class: 'pista-sonora' },
+          emoji(rima ? d.palavras[palavra].e : '🕵️', '', { 'aria-hidden': true }),
+          rima ? escrito('strong', palavra) : null,
+          botao('Ouvir a pista', ouvir, 'azul', '🔊')),
+        h('div', { class: 'opcoes trio-figuras' }, botoes),
+        botao('Ouvir as figuras', async () => {
+          await falarSequencia(palavras.map(falaPalavra), { aoItem: (i) => destacar(botoes, i) });
+          destacar(botoes, -1);
+        }, 'branco', '👂'));
+      ouvir();
+    },
+  });
+}
+
+export const atvRimas = (area, l) => escutarFiguras(area, l, true);
+export const atvSomInicial = (area, l) => escutarFiguras(area, l, false);
 
 export function atvSilabaFalta(area, l) {
   const d = dados();

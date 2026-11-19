@@ -91,7 +91,7 @@
   },
   "sons": [
     ["a", "a", "abelha", "aberto e comprido", "😮", "o susto: aaaa!"],
-    ["e", "e", "elefante", "aberto, como em ELEFANTE", "🤢", "o nojo: éééca!"],
+    ["e", "e", "pé", "E aberto, como em PÉ", "🤢", "o nojo: éééca!"],
     ["i", "i", "ilha", "fininho e comprido", "🐭", "o ratinho: iiiii!"],
     ["o", "o", "ovo", "redondo, como em OVO", "😲", "a surpresa: ôôôô!"],
     ["u", "u", "uva", "com a boca em bico", "👻", "o fantasma: uuuuu!"],
@@ -114,14 +114,44 @@
     ["nh", "nh", "galinha", "como no meio de GALINHA", "🍉", "a mordida na melancia: nhac!"],
     ["lh", "lh", "coelho", "como no meio de COELHO", "👀", "\"olha!\": lhhh!"]
   ],
-  "sonsIguais": {"k": "c", "q": "c", "qu": "c", "w": "u", "y": "i", "ç": "s", "ss": "s", "ch": "x", "rr": "r", "gu": "g", "á": "a", "â": "a", "ã": "a", "é": "e", "ê": "e", "í": "i", "ó": "o", "ô": "o", "õ": "o", "ú": "u"},
+  "variantesSonoras": {"r_fraco": "R de prato", "o_aberto": "Ó de bola", "e_fechado": "Ê de bebê"},
+  "exemplosDeSom": {
+    "m": ["mala", "mapa", "macaco", "morcego"], "s": ["sapo", "suco", "sino", "cebola"],
+    "f": ["foca", "fita", "fada"], "v": ["vaca", "vaso", "vela"],
+    "l": ["lua", "lupa", "lata"], "n": ["navio", "nuvem", "nariz"],
+    "j": ["janela", "girafa", "gelo"], "x": ["chuva", "xícara", "chave"],
+    "z": ["zebra", "zero"], "r": ["rato", "rede", "rádio"],
+    "p": ["pato", "pipa", "panda"], "b": ["bola", "balde", "bule"],
+    "t": ["taco", "tomate", "teia"], "d": ["dado", "dedo", "doce"],
+    "c": ["casa", "cacto", "queijo"], "g": ["gato", "galo", "guitarra"]
+  },
+  "rimas": [
+    ["pato", "gato", "rato", "sapato"], ["janela", "panela", "vela"],
+    ["balão", "limão", "pão", "dragão"], ["galinha", "joaninha"],
+    ["bola", "sacola"], ["faca", "vaca"],
+    ["lua", "rua"], ["fada", "salada", "tomada"],
+    ["pipoca", "foca", "minhoca"], ["coelho", "joelho"], ["chuva", "luva"]
+  ],
+  "sonsIguais": {"k": "c", "q": "c", "qu": "c", "w": "u", "y": "i", "ç": "s", "ss": "s", "ch": "x", "rr": "r", "gu": "g", "á": "a", "â": "a", "ã": "a", "é": "e", "ê": "e_fechado", "í": "i", "ó": "o_aberto", "ô": "o", "õ": "o", "ú": "u"},
   "palavras": {
+    "saxofone": {"s": ["sa", "xo", "fo", "ne"], "e": "🎷", "sonsPorPosicao": {"2": "c+s"}},
+    "rádio": {"s": ["rá", "dio"], "e": "📻"},
+    "guitarra": {"s": ["gui", "tar", "ra"], "e": "🎸"},
+    "cacto": {"s": ["cac", "to"], "e": "🌵"},
+    "vampiro": {"s": ["vam", "pi", "ro"], "e": "🧛"},
+    "faca": {"s": ["fa", "ca"], "e": "🔪"},
+    "dragão": {"s": ["dra", "gão"], "e": "🐉"},
+    "taco": {"s": ["ta", "co"], "e": "🌮"},
+    "morcego": {"s": ["mor", "ce", "go"], "e": "🦇"},
+    "lupa": {"s": ["lu", "pa"], "e": "🔍"},
+    "panda": {"s": ["pan", "da"], "e": "🐼"},
+    "balde": {"s": ["bal", "de"], "e": "🪣"},
     "abelha": {"s": ["a", "be", "lha"], "e": "🐝"},
     "elefante": {"s": ["e", "le", "fan", "te"], "e": "🐘"},
     "ilha": {"s": ["i", "lha"], "e": "🏝️"},
     "ovo": {"s": ["o", "vo"], "e": "🥚", "fs": ["ô", "vó"]},
     "uva": {"s": ["u", "va"], "e": "🍇"},
-    "bola": {"s": ["bo", "la"], "e": "⚽"},
+    "bola": {"s": ["bo", "la"], "e": "⚽", "sonsPorPosicao": {"1": "o_aberto"}},
     "bolo": {"s": ["bo", "lo"], "e": "🎂", "fs": ["bô", "ló"]},
     "lobo": {"s": ["lo", "bo"], "e": "🐺", "fs": ["lô", "bó"]},
     "bala": {"s": ["ba", "la"], "e": "🍬"},
@@ -136,7 +166,7 @@
     "batata": {"s": ["ba", "ta", "ta"], "e": "🥔"},
     "pote": {"s": ["po", "te"], "e": "🍯"},
     "tia": {"s": ["ti", "a"], "e": "👩‍🏫"},
-    "casa": {"s": ["ca", "sa"], "e": "🏠"},
+    "casa": {"s": ["ca", "sa"], "e": "🏠", "fs": ["cá", "zá"]},
     "sapo": {"s": ["sa", "po"], "e": "🐸"},
     "sopa": {"s": ["so", "pa"], "e": "🍲", "fs": ["sô", "pá"]},
     "coco": {"s": ["co", "co"], "e": "🥥", "fs": ["cô", "có"]},
@@ -395,6 +425,8 @@
     "contarSilabas": "Quantas sílabas tem esta palavra?",
     "bingo": "Bingo!",
     "bingoOuca": "Escute a sílaba. Se tiver na sua cartela, toque nela!",
+    "ouvirInicio": "Ouça o som. Qual figura começa com ele?",
+    "ouvirRima": "Qual palavra rima com esta?",
     "juntarSons": "Vamos juntar os sons!",
     "qualLetraSom": "Qual letra faz este som?",
     "hSemSom": "O agá não tem som!",
@@ -464,7 +496,7 @@
     },
     {
       "id": "bola", "titulo": "Bola", "palavra": "bola", "familias": ["b"],
-      "palavras": ["bola", "bolo", "bala", "bule", "boi", "bota", "banana", "boneca", "baleia", "bebê", "borboleta", "barco", "bicicleta", "bigode", "bode", "banho"],
+      "palavras": ["bola", "bolo", "bala", "bule", "boi", "bota", "banana", "boneca", "baleia", "bebê", "borboleta", "barco", "bicicleta", "bigode", "bode", "banho", "balde"],
       "historia": {
         "titulo": "A bola do lobo",
         "cenas": [
@@ -483,7 +515,7 @@
     },
     {
       "id": "pato", "titulo": "Pato", "palavra": "pato", "familias": ["p"],
-      "palavras": ["pato", "pipa", "pote", "pipoca", "pera", "peixe", "pirata", "panela", "pé", "pirulito", "pinguim", "porco", "palhaço", "pão"],
+      "palavras": ["pato", "pipa", "pote", "pipoca", "pera", "peixe", "pirata", "panela", "pé", "pirulito", "pinguim", "porco", "palhaço", "pão", "panda"],
       "historia": {
         "titulo": "O pato e a pipa",
         "cenas": [
@@ -502,7 +534,7 @@
     },
     {
       "id": "tomate", "titulo": "Tomate", "palavra": "tomate", "familias": ["t"],
-      "palavras": ["tomate", "tomada", "tia", "teia", "telefone", "tubarão", "tesoura", "tigela", "tartaruga", "televisão", "tambor", "tênis", "tigre"],
+      "palavras": ["tomate", "tomada", "tia", "teia", "telefone", "tubarão", "tesoura", "tigela", "tartaruga", "televisão", "tambor", "tênis", "tigre", "taco"],
       "historia": {
         "titulo": "O tubarão e o tomate",
         "cenas": [
@@ -542,7 +574,7 @@
     },
     {
       "id": "fada", "titulo": "Fada", "palavra": "fada", "familias": ["f"],
-      "palavras": ["fada", "foca", "fita", "fogo", "foguete", "formiga", "fumaça", "festa", "fazenda", "fantasma", "futebol"],
+      "palavras": ["fada", "foca", "fita", "fogo", "foguete", "formiga", "fumaça", "festa", "fazenda", "fantasma", "futebol", "faca"],
       "historia": {
         "titulo": "A fada e a foca",
         "cenas": [
@@ -561,7 +593,7 @@
     },
     {
       "id": "vaca", "titulo": "Vaca", "palavra": "vaca", "familias": ["v"],
-      "palavras": ["vaca", "vela", "vovó", "vovô", "vaso", "violão", "vulcão", "vassoura", "violino", "vestido"],
+      "palavras": ["vaca", "vela", "vovó", "vovô", "vaso", "violão", "vulcão", "vassoura", "violino", "vestido", "vampiro"],
       "historia": {
         "titulo": "A vaca da vovó",
         "cenas": [
@@ -582,7 +614,7 @@
     },
     {
       "id": "lua", "titulo": "Lua", "palavra": "lua", "familias": ["l"],
-      "palavras": ["lua", "lobo", "lula", "lata", "lago", "leão", "limão", "lixo", "laço", "leite", "lápis", "livro", "laranja", "lâmpada"],
+      "palavras": ["lua", "lobo", "lula", "lata", "lago", "leão", "limão", "lixo", "laço", "leite", "lápis", "livro", "laranja", "lâmpada", "lupa"],
       "historia": {
         "titulo": "O lobo e a lua",
         "cenas": [
@@ -601,7 +633,7 @@
     },
     {
       "id": "macaco", "titulo": "Macaco", "palavra": "macaco", "familias": ["m"],
-      "palavras": ["macaco", "mala", "mapa", "moto", "mamute", "meia", "milho", "menino", "menina", "mochila", "moeda", "mágico", "melancia", "morango", "mão", "maçã"],
+      "palavras": ["macaco", "mala", "mapa", "moto", "mamute", "meia", "milho", "menino", "menina", "mochila", "moeda", "mágico", "melancia", "morango", "mão", "maçã", "morcego"],
       "historia": {
         "titulo": "O macaco viajante",
         "cenas": [
@@ -641,7 +673,7 @@
     },
     {
       "id": "sapo", "titulo": "Sapo", "palavra": "sapo", "familias": ["s"],
-      "palavras": ["sapo", "sopa", "sapato", "sacola", "suco", "sofá", "sino", "sorvete", "sabão", "sol", "sereia", "sanduíche", "semáforo", "salada"],
+      "palavras": ["sapo", "sopa", "sapato", "sacola", "suco", "sofá", "sino", "sorvete", "sabão", "sol", "sereia", "sanduíche", "semáforo", "salada", "saxofone"],
       "historia": {
         "titulo": "O sapo na casa",
         "cenas": [
@@ -660,7 +692,7 @@
     },
     {
       "id": "casa", "titulo": "Casa", "palavra": "casa", "familias": ["c"],
-      "palavras": ["casa", "cama", "cavalo", "coco", "copo", "cabelo", "casaco", "caneta", "cadeado", "camelo", "cometa", "coroa", "camisa", "caracol", "cueca", "cachorro", "coelho", "cobra"],
+      "palavras": ["casa", "cama", "cavalo", "coco", "copo", "cabelo", "casaco", "caneta", "cadeado", "camelo", "cometa", "coroa", "camisa", "caracol", "cueca", "cachorro", "coelho", "cobra", "cacto"],
       "historia": {
         "titulo": "O cavalo e o coco",
         "cenas": [
@@ -679,7 +711,7 @@
     },
     {
       "id": "gato", "titulo": "Gato", "palavra": "gato", "familias": ["g"],
-      "palavras": ["gato", "galo", "gota", "galinha", "gorila", "garrafa", "garfo", "goleiro", "gorro"],
+      "palavras": ["gato", "galo", "gota", "galinha", "gorila", "garrafa", "garfo", "goleiro", "gorro", "guitarra"],
       "historia": {
         "titulo": "O gato mago",
         "cenas": [
@@ -719,7 +751,7 @@
     },
     {
       "id": "rato", "titulo": "Rato", "palavra": "rato", "familias": ["r"],
-      "palavras": ["rato", "rede", "rosa", "remo", "rena", "rei", "rio", "rua", "robô", "raposa", "rinoceronte", "relógio"],
+      "palavras": ["rato", "rede", "rosa", "remo", "rena", "rei", "rio", "rua", "robô", "raposa", "rinoceronte", "relógio", "rádio"],
       "historia": {
         "titulo": "O rato pirata",
         "cenas": [
@@ -949,7 +981,7 @@
     },
     {
       "id": "pao", "titulo": "Pão", "rotulo": "ÃO", "secao": "especial", "palavra": "pão", "familias": ["ão"],
-      "palavras": ["pão", "mão", "cão", "leão", "balão", "limão", "avião", "sabão"],
+      "palavras": ["pão", "mão", "cão", "leão", "balão", "limão", "avião", "sabão", "dragão"],
       "historia": {
         "titulo": "O lanche do leão",
         "cenas": [

@@ -20,12 +20,14 @@ const VIDEO_REFERENCIA = {
 
 // ------------------------------------------------------------------ escolher a voz dos sons
 export async function telaSons(tela, ir) {
+  const pagina = h('div', { class: 'pais' });
+  tela.append(pagina);
   const total = dados().sons.length;
   const gravadas = await chavesGravadas();
   const lista = h('div', { class: 'vozes' });
   const atual = vozAtual();
 
-  const cartao = ({ id, titulo, detalhe, selo, podeNotar }) => {
+  const cartao = ({ id, titulo, detalhe, selo, podeNotar, amostra = AMOSTRA }) => {
     const escolhida = atual === id;
     const estrelas = podeNotar ? h('div', { class: 'dar-nota' },
       h('span', {}, notaDada(id) ? 'Sua nota: ' : 'Dê sua nota: '),
@@ -37,31 +39,40 @@ export async function telaSons(tela, ir) {
       h('div', { class: 'voz-titulo' }, h('strong', {}, titulo), selo ? h('span', { class: 'selo' }, selo) : null),
       h('div', { class: 'voz-detalhe' }, detalhe),
       h('div', { class: 'acoes', style: 'justify-content:flex-start;margin:8px 0 0' },
-        botao('Ouvir', () => falarSomDaVoz(AMOSTRA, id || undefined), 'azul', '▶️'),
+        botao('Ouvir', () => falarSomDaVoz(amostra, id), 'azul', '▶️'),
         escolhida ? h('span', { class: 'em-uso' }, '✅ Em uso') : botao('Usar esta voz', () => { usarVoz(id); ir('#/sons'); }, 'verde', '✔️')),
       estrelas);
   };
 
   const cartoes = [cartao({ id: '', titulo: 'Automático', detalhe: 'Usa a minha gravação, se houver; senão, a voz padrão ou a de melhor nota.' })];
   if (gravadas.length) {
-    cartoes.push(cartao({ id: 'local', titulo: '🎙️ Minha gravação', detalhe: `Só neste aparelho. ${gravadas.length} de ${total} sons gravados.` }));
+    cartoes.push(cartao({ id: 'local', titulo: '🎙️ Minha gravação', amostra: gravadas.slice(0, 5), detalhe: `Só neste aparelho. ${gravadas.length} de ${total} sons gravados.` }));
     cartoes.at(-1).append(h('div', { class: 'acoes', style: 'justify-content:flex-start;margin:8px 0 0' },
       botao('Enviar para o site', () => ir('#/gravar/enviar'), 'roxo', '📤')));
   }
   for (const v of vozesPublicadas()) {
     const nota = v.votos ? `★ ${v.nota.toLocaleString('pt-BR', { maximumFractionDigits: 1 })} (${v.votos} ${v.votos === 1 ? 'nota' : 'notas'})` : 'sem notas ainda';
     cartoes.push(cartao({
-      id: v.id, titulo: v.apelido || 'Voz de um pai ou mãe', detalhe: `Enviada em ${v.mes || '—'} · ${nota}`,
+      id: v.id, titulo: v.apelido || 'Voz de um pai ou mãe', detalhe: [v.descricao || `Enviada em ${v.mes || '—'}`, nota].join(' · '),
       selo: v.id === vozPadrao() ? 'Padrão' : '', podeNotar: true,
+      amostra: [...new Set([...AMOSTRA.filter((k) => v.sons.includes(k)), ...v.sons])].slice(0, 5),
     }));
+    if (v.exemplos) {
+      cartoes.at(-1).append(h('details', {}, h('summary', {}, 'Ouvir cada som e sua palavra'),
+        h('div', { class: 'acoes' }, Object.entries(v.exemplos).map(([som, palavra]) =>
+          botao(palavra, async () => {
+            if (await falarSomDaVoz([som], v.id)) falar(palavra);
+          }, 'branco', dados().palavras[palavra]?.e || '🔊'))),
+        h('a', { href: `sons/${v.id}/CREDITOS.txt`, target: '_blank', rel: 'noopener' }, 'Créditos das gravações')));
+    }
   }
   lista.append(...cartoes);
 
-  tela.append(h('div', { class: 'pais' },
+  pagina.append(
     h('h2', { class: 'titulo-tela' }, '👂 Sons das letras'),
     h('section', {},
       h('p', {}, 'No método fônico, quando a criança toca numa letra ela ouve o SOM da letra (M = mmmm), não o nome (ême). ',
-        'Os sons são gravados por pais e mães: ouça as vozes, escolha a de que mais gostar e dê sua nota. As melhores ficam no app.'),
+        'Ouça as vozes e escolha a sua favorita. Você também pode gravar com a voz da família.'),
       ehFonico() ? null : h('p', { class: 'aviso' }, 'O método escolhido agora é o Paulo Freire, que usa o nome das letras. ',
         botao('Usar o método fônico', () => { mudarConfig('metodo', 'fonico'); falar(dados().frases.metodoFonico); ir('#/sons'); }, 'roxo', '👂')),
       vozesPublicadas().length || gravadas.length ? null
@@ -72,7 +83,7 @@ export async function telaSons(tela, ir) {
       h('p', {}, 'Leva uns 10 minutos. A gravação fica só neste aparelho e já vale nele.'),
       h('p', {}, 'Para outras crianças usarem a sua voz: no fim da tela de gravação, toque em ', h('strong', {}, '📤 Enviar meus sons'),
         ` e mande o arquivo pelo WhatsApp ou e-mail para ${CONTATO.nome}. Ele ouve e coloca no site, e a sua voz aparece aqui para todos escolherem.`),
-      h('div', { class: 'acoes', style: 'justify-content:flex-start' }, botao('Gravar os sons das letras', () => ir('#/gravar'), 'roxo', '🎙️')))));
+      h('div', { class: 'acoes', style: 'justify-content:flex-start' }, botao('Gravar os sons das letras', () => ir('#/gravar'), 'roxo', '🎙️'))));
 }
 
 // ------------------------------------------------------------------ gravar os sons com a própria voz

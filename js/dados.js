@@ -90,14 +90,15 @@ export function simples(texto) {
   return texto.normalize('NFD').replace(/[̀-̨̦-ͯ]/g, '').normalize('NFC').toLowerCase();
 }
 
-// Como montar a palavra com as peças dadas (peças de 1 a 3 letras, da esquerda para a direita), ou null.
+// Como montar a palavra com as peças disponíveis, da esquerda para a direita, ou null.
 // decompor('cachorro', [...]) -> ['ca', 'cho', 'rro']
 export function decompor(palavra, silabas) {
   const tem = new Set(silabas.map(simples));
+  const tamanhos = [...new Set([...tem].map((s) => s.length))].filter(Boolean).sort((a, b) => b - a);
   const alvo = simples(palavra);
   const de = (i) => {
     if (i === alvo.length) return [];
-    for (const n of [3, 2, 1]) {
+    for (const n of tamanhos) {
       const peca = alvo.slice(i, i + n);
       if (peca.length === n && tem.has(peca)) {
         const resto = de(i + n);
@@ -107,6 +108,30 @@ export function decompor(palavra, silabas) {
     return null;
   };
   return de(0);
+}
+
+export function linhasDaDescoberta(l) {
+  // peças (filas): vogais, as famílias desta lição inteiras e uma fila com as peças de outras famílias
+  // que montam as palavras desta lição (CACHORRO = CA + CHO + RRO). Só conta como "dá para descobrir"
+  // a palavra que se monta com as peças que estão na tela.
+  const linhas = [['vogais', D.familias.vogais], ...l.familias.map((f) => [f, D.familias[f]])];
+  const naTela = new Set(linhas.flatMap(([, sil]) => sil).map(simples));
+  // as lições podem ser feitas em qualquer ordem (de A a Z ou do fácil ao difícil): usa todas as famílias
+  const conhecidasAte = Object.values(D.familias).flat();
+  const original = new Map(conhecidasAte.map((s) => [simples(s), s]));
+  // Quando as famílias não bastam (BAL em BALDE), ofereça as sílabas da própria palavra.
+  const extras = l.palavras.flatMap((w) => {
+    const pelasFamilias = decompor(w, conhecidasAte);
+    if (pelasFamilias) return pelasFamilias;
+    return D.palavras[w].s.map((s) => {
+      if (!original.has(simples(s))) original.set(simples(s), s);
+      return simples(s);
+    });
+  });
+  const outras = [...new Set(extras)]
+    .filter((p) => !naTela.has(p)).map((p) => original.get(p));
+  if (outras.length) linhas.push(['outras', outras]);
+  return linhas;
 }
 
 // Palavras do dicionário que dá para montar só com as peças dadas.

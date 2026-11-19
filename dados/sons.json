@@ -1,4 +1,58 @@
 {
-  "padrao": null,
-  "conjuntos": []
+  "padrao": "marcos",
+  "conjuntos": [
+    {
+      "id": "marcos",
+      "apelido": "Marcos · voz humana",
+      "exemplos": {"m": "morcego", "s": "sofá", "f": "forte", "v": "vaca", "j": "girafa", "x": "chapéu", "n": "nariz", "z": "zoológico"},
+      "descricao": "Gravações brasileiras de Marcos Dias Meneghel para o GCompris. Oito sons iniciais recortados de palavras. A voz Liane completa os outros sons.",
+      "sons": [
+        "m",
+        "s",
+        "f",
+        "v",
+        "j",
+        "x",
+        "n",
+        "z"
+      ],
+      "nota": 0,
+      "votos": 0
+    },
+    {
+      "id": "liane-br4",
+      "apelido": "Liane · português do Brasil",
+      "descricao": "Voz sintetizada a partir das gravações da locutora Liane Borges para o Serpro. Inclui sons curtos, sons prolongados e variações de E, O e R.",
+      "sons": [
+        "a",
+        "e",
+        "i",
+        "o",
+        "u",
+        "b",
+        "c",
+        "d",
+        "f",
+        "g",
+        "j",
+        "l",
+        "m",
+        "n",
+        "p",
+        "r",
+        "s",
+        "t",
+        "v",
+        "x",
+        "z",
+        "nh",
+        "lh",
+        "e_fechado",
+        "o_aberto",
+        "r_fraco"
+      ],
+      "nota": 0,
+      "votos": 0
+    }
+  ]
 }

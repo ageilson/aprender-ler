@@ -367,6 +367,19 @@ button.btn:disabled { background: #d9d0c5; color: #6f6458; box-shadow: none; cur
 .tecla.errada { animation: treme .5s; }
 
 /* jogos novos e área de jogos */
+.jogos-grade .jogo-card { justify-content: center; border-bottom: 5px solid #ddd0b8; }
+.jogos-grade .jogo-som-inicial { background: #e0f5ec; border-color: #499e85; }
+.jogos-grade .jogo-rimas { background: #f3e9fc; border-color: #ad75c8; }
+.pista-sonora {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px;
+  padding: 12px 20px; border-radius: var(--raio); background: #fff2c6;
+}
+.pista-sonora > .emoji { font-size: 48px; }
+.pista-sonora strong { font-size: clamp(23px, 5vw, 36px); }
+.opcoes.trio-figuras { width: 100%; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.trio-figuras .figura-opcao { padding: 8px 3px; gap: 6px; }
+.trio-figuras .figura-opcao .emoji { font-size: clamp(38px, 10vw, 76px); }
+.trio-figuras .nome-figura { font-size: clamp(14px, 3.5vw, 26px); overflow-wrap: anywhere; }
 .niveis .rotulo-nivel { align-self: center; font-weight: 700; color: var(--suave); }
 .jogo-caixa { display: flex; flex-direction: column; align-items: center; gap: 14px; }
 .vaga-falta { background: #fff4d6 !important; color: var(--laranja) !important; border: 4px dashed var(--laranja); }

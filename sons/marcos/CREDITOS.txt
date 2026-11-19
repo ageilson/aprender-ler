@@ -1,0 +1,18 @@
+Gravações de Marcos Dias Meneghel para o GCompris em português do Brasil.
+Licença GPL versão 3 ou posterior, conforme pt_BR/README. Veja COPYING.txt.
+Originais incluídos nesta pasta, na subpasta originais.
+Fonte: https://github.com/gcompris/GCompris-voices/tree/c0e8a743b7b4633af06b8dc15bc2b397e456dd6f/pt_BR
+
+Adaptação para Aprender a Ler: recorte do início de cada palavra, alongamento
+sem mudança de altura, ajuste de volume e conversão em MP3. Os MP3 da palavra
+inteira estão em ../../narracao/marcos-*.mp3. Mesma licença dos originais.
+
+Som | palavra | arquivo de origem | intervalo recortado
+m | morcego | originais/bat.ogg | 0.027 a 0.130 s
+s | sofá | originais/couch.ogg | 0.238 a 0.377 s
+f | forte | originais/strong.ogg | 0.280 a 0.385 s
+v | vaca | originais/cow.ogg | 0.094 a 0.227 s
+j | girafa | originais/giraffe.ogg | 0.085 a 0.277 s
+x | chapéu | originais/hat.ogg | 0.040 a 0.186 s
+n | nariz | originais/nose.ogg | 0.049 a 0.164 s
+z | zoológico | originais/zoo.ogg | 0.080 a 0.267 s

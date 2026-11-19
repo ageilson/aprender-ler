@@ -20,6 +20,8 @@ export async function carregarCatalogo() {
 
 export const vozesPublicadas = () => catalogo.conjuntos;
 export const vozPadrao = () => catalogo.padrao;
+const urlPublicada = (id, chave) => `sons/${id}/${chave}.mp3`;
+export const audiosDosSons = () => catalogo.conjuntos.flatMap((v) => v.sons.map((s) => urlPublicada(v.id, s)));
 
 // ------------------------------------------------------------------ gravações deste aparelho (IndexedDB)
 function banco() {
@@ -53,8 +55,7 @@ export async function apagarGravacoes() {
 }
 
 // ------------------------------------------------------------------ qual voz usar
-async function vozEscolhida() {
-  const escolha = config().vozSons || '';
+async function vozEscolhida(escolha = config().vozSons || '') {
   if (escolha === 'local') return 'local';
   if (escolha && catalogo.conjuntos.some((c) => c.id === escolha)) return escolha;
   if ((await chavesGravadas()).length) return 'local';
@@ -65,17 +66,21 @@ async function vozEscolhida() {
 
 // Endereço do som desta letra na voz escolhida (ou na voz pedida), ou null se ninguém gravou.
 export async function fonteDoSom(chave, voz) {
-  voz = voz || await vozEscolhida();
-  if (!voz) return null;
+  const amostra = !!voz;
+  voz = voz || await vozEscolhida(voz);
   if (voz === 'local') {
     if (!urlsLocais.has(chave)) {
       const blob = await lerGravacao(chave);
       urlsLocais.set(chave, blob ? URL.createObjectURL(blob) : null);
     }
-    return urlsLocais.get(chave);
+    if (urlsLocais.get(chave) || amostra) return urlsLocais.get(chave);
   }
   const conjunto = catalogo.conjuntos.find((c) => c.id === voz);
-  return conjunto && conjunto.sons.includes(chave) ? `sons/${voz}/${chave}.mp3` : null;
+  if (conjunto?.sons.includes(chave)) return urlPublicada(voz, chave);
+  if (amostra) return null;
+  const reserva = catalogo.conjuntos.find((c) => c.id === catalogo.padrao && c.sons.includes(chave))
+    || catalogo.conjuntos.find((c) => c.sons.includes(chave));
+  return reserva ? urlPublicada(reserva.id, chave) : null;
 }
 
 export async function temSonsDisponiveis() {

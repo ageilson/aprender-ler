@@ -18,14 +18,22 @@ const historico = [];
 window.__falas = historico; // para testes: o que foi pedido para falar, em ordem
 
 export async function carregarManifesto() {
-  try {
-    const r = await fetch('audio/manifest.json', { cache: 'no-cache' });
-    if (r.ok) manifesto = await r.json();
-  } catch { /* sem áudios gravados: usa a voz do navegador */ }
+  async function pacote(pasta) {
+    try {
+      const r = await fetch(`${pasta}/manifest.json`, { cache: 'no-cache' });
+      if (r.ok) return await r.json();
+    } catch { /* cada pacote pode estar disponível independentemente */ }
+    return {};
+  }
+  const [extra, principal] = await Promise.all([pacote('narracao'), pacote('audio')]);
+  const narracao = (itens) => Object.fromEntries(Object.entries(itens || {}).map(([fala, arquivo]) =>
+    [fala, { url: 'narracao/' + arquivo }]));
+  manifesto.itens = { ...narracao(extra.itens), ...principal.itens, ...narracao(extra.humanas) };
 }
 
+const enderecoDo = (item) => item.url || 'audio/' + item.a;
 export const totalAudios = () => Object.keys(manifesto.itens || {}).length;
-export const listaAudios = () => Object.values(manifesto.itens || {}).map((i) => 'audio/' + i.a);
+export const listaAudios = () => Object.values(manifesto.itens || {}).map(enderecoDo);
 export const contexto = () => ctx;
 
 // Navegadores só deixam tocar som depois de um toque: chamado pelo botão "Começar".
@@ -58,7 +66,7 @@ function buffer(texto) {
   const item = manifesto.itens?.[texto];
   if (!item || !ctx) return Promise.resolve(null);
   if (!buffers.has(texto)) {
-    buffers.set(texto, fetch('audio/' + item.a)
+    buffers.set(texto, fetch(enderecoDo(item))
       .then((r) => { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
       .then((b) => new Promise((ok, erro) => ctx.decodeAudioData(b, ok, erro)))
       .then((b) => trechoComFala(b, item))
@@ -72,10 +80,10 @@ export function precarregar(textos) {
   textos.forEach((t) => {
     const item = manifesto.itens?.[t];
     if (!semWebAudio) buffer(t);
-    else if (item && !elementos.has(item.a)) {
-      const el = new Audio('audio/' + item.a);
+    else if (item && !elementos.has(enderecoDo(item))) {
+      const el = new Audio(enderecoDo(item));
       el.preload = 'auto';
-      elementos.set(item.a, el);
+      elementos.set(enderecoDo(item), el);
     }
   });
 }
@@ -169,7 +177,7 @@ async function tocarSom(chave, minha, voz) {
   const url = await fonteDoSom(chave, voz);
   if (minha !== geracao) return false;
   // ninguém gravou este som ainda: diz o nome da letra, para não ficar mudo
-  if (!url) return tocar(falaConsoante(chave), minha);
+  if (!url) return tocar(dados().variantesSonoras?.[chave] || falaConsoante(chave), minha);
   if (ctx) {
     if (!gravacoes.has(url)) {
       gravacoes.set(url, fetch(url).then((r) => r.arrayBuffer())
@@ -206,7 +214,7 @@ export function falarSomDaVoz(chaves, voz) {
 // Sem Web Audio: o mesmo MP3 num <audio>, do começo ao fim da fala (item.t), com o mesmo karaokê.
 function tocarElemento(item, minha, aoPalavra) {
   return new Promise((resolver) => {
-    const endereco = item.url || 'audio/' + item.a;
+    const endereco = enderecoDo(item);
     let el = elementos.get(endereco);
     if (!el) {
       el = new Audio(endereco);

@@ -10,9 +10,12 @@ import { h, emoji } from './ui.js';
 import { emojiDa } from './licao.js';
 import {
   atvMemoria, atvCaca, atvMontar, atvSilabaFalta, atvComecaCom, atvContarSilabas, atvBingo,
+  atvSomInicial, atvRimas, temExemploDeEscuta,
 } from './jogos.js';
 
 export const JOGOS = [
+  { id: 'som-inicial', icone: '🕵️', nome: 'Detetive dos sons', desc: 'Ouça a pista e encontre a figura', jogar: atvSomInicial, aceita: (l) => temExemploDeEscuta(l, false) },
+  { id: 'rimas', icone: '🎵', nome: 'Brincar de rima', desc: 'Descubra quais palavras rimam', jogar: atvRimas, aceita: (l) => temExemploDeEscuta(l, true) },
   { id: 'memoria', icone: '🃏', nome: 'Memória', desc: 'Ache os pares (fácil, médio ou difícil)', jogar: atvMemoria, vogais: true },
   { id: 'caca', icone: '🎯', nome: 'Caça', desc: 'Onde está a sílaba, a palavra ou a letra?', jogar: atvCaca, vogais: true },
   { id: 'montar', icone: '🧩', nome: 'Montar a palavra', desc: 'Junte as sílabas na ordem certa', jogar: atvMontar },
@@ -34,6 +37,7 @@ function todasAsLetras() {
 }
 
 const marca = (l) => l.rotulo || (l.tipo === 'vogais' ? 'A E I O U' : semAcento(l.palavra)[0].toUpperCase());
+const podeJogar = (j, l) => (!j.aceita || j.aceita(l)) && (l.tipo !== 'vogais' || j.vogais);
 
 export function telaJogos(tela, ir, jogoId, licaoId) {
   const d = dados();
@@ -42,20 +46,20 @@ export function telaJogos(tela, ir, jogoId, licaoId) {
   // os jogos (de todas as letras, ou de uma lição)
   if (!jogo) {
     const l = jogoId === 'todos' && licaoId ? licao(licaoId) : null;
-    const lista = JOGOS.filter((j) => !l || l.tipo !== 'vogais' || j.vogais);
+    const lista = JOGOS.filter((j) => !l || podeJogar(j, l));
     tela.append(
       h('h2', { class: 'titulo-tela' }, '🎮 Jogos', l ? ` da lição ${l.tipo === 'vogais' ? 'das vogais' : l.palavra.toUpperCase()}` : ''),
       h('div', { class: 'mapa jogos-grade' }, lista.map((j) => h('button', {
-        class: 'licao-card jogo-card', onclick: () => ir(l ? `#/jogos/${j.id}/${l.id}` : `#/jogos/${j.id}`),
+        class: `licao-card jogo-card jogo-${j.id}`, onclick: () => ir(l ? `#/jogos/${j.id}/${l.id}` : `#/jogos/${j.id}`),
       }, emoji(j.icone), h('span', { class: 'nome' }, j.nome), h('span', { class: 'estrelas' }, j.desc)))));
     return;
   }
 
   // escolher a letra
   if (!licaoId) {
-    const deLetras = d.licoes.filter((l) => l.secao !== 'especial' && (l.tipo !== 'vogais' || jogo.vogais))
+    const deLetras = d.licoes.filter((l) => l.secao !== 'especial' && podeJogar(jogo, l))
       .sort((a, b) => (a.tipo === 'vogais' ? -1 : b.tipo === 'vogais' ? 1 : semAcento(a.palavra).localeCompare(semAcento(b.palavra), 'pt-BR')));
-    const especiais = d.licoes.filter((l) => l.secao === 'especial');
+    const especiais = d.licoes.filter((l) => l.secao === 'especial' && podeJogar(jogo, l));
     const cartao = (l) => h('button', { class: 'licao-card', onclick: () => ir(`#/jogos/${jogo.id}/${l.id}`) },
       h('span', { class: `num letra-inicial ${marca(l).length > 2 ? 'longa' : ''}` }, marca(l)), emoji(emojiDa(l)),
       l.tipo === 'vogais' ? h('span', { class: 'nome' }, 'A E I O U') : escrito('span', l.palavra, { classe: 'nome' }));
@@ -74,7 +78,7 @@ export function telaJogos(tela, ir, jogoId, licaoId) {
 
   // jogar
   const l = licaoId === 'todas' ? todasAsLetras() : licao(licaoId);
-  if (!l) { ir('#/jogos'); return; }
+  if (!l || !podeJogar(jogo, l)) { ir('#/jogos'); return; }
   const titulo = l.id === 'todas' ? 'Todas as letras' : l.tipo === 'vogais' ? 'A E I O U' : l.palavra.toUpperCase();
   const area = h('section', { class: 'atividade' });
   tela.append(

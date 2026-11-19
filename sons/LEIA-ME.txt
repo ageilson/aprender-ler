@@ -1,1 +1,1 @@
-Vozes dos sons das letras gravadas por pais (uma pasta por voz). Ver ferramentas/sons.py.
+O catálogo fica em dados/sons.json. A pasta marcos contém os recortes de voz humana do GCompris, os originais, créditos e licença. A pasta liane-br4 contém os fonemas sintetizados com a base brasileira BR4 do Serpro e sua licença. Para importar gravações de famílias, consulte ferramentas/sons.py.

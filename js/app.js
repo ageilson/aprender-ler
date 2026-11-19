@@ -6,14 +6,14 @@ import { ligarDedo, definirLeitura } from './dedo.js';
 import { definirModo, modoAtual, escrito } from './escrita.js';
 import {
   carregarProgresso, perfis, perfilAtual, criarPerfil, escolherPerfil, apagarPerfil, zerarProgresso,
-  config, mudarConfig, estrelasDa, totalEstrelas,
+  config, mudarConfig, temEstrela, totalEstrelas,
 } from './progresso.js';
 import { telaLicao, atividadesDa, emojiDa } from './licao.js';
 import { h, emoji, botao, sairDaTela, instrucao, contato, CONTATO } from './ui.js';
 import { ehFonico, falaDaLetra } from './metodo.js';
-import { carregarCatalogo, temSonsDisponiveis } from './sons.js';
+import { carregarCatalogo, temSonsDisponiveis, audiosDosSons } from './sons.js';
 import { telaSons, telaGravar } from './telasSons.js';
-import { telaJogos } from './telaJogos.js';
+import { telaJogos, JOGOS } from './telaJogos.js';
 import { contarAparelho, criancasAjudadas } from './contador.js';
 
 const tela = document.getElementById('tela');
@@ -214,7 +214,8 @@ function telaMapa() {
   const d = dados();
   if (!perfilAtual() && perfis().length) { ir('#/perfis'); return; }
   // "Próxima!" segue sempre a ordem da cartilha (do mais fácil ao mais difícil), seja qual for a ordem na tela
-  const proxima = d.licoes.find((l) => estrelasDa(l.id) < atividadesDa(l).length);
+  const feitas = (l) => atividadesDa(l).filter((a) => temEstrela(l.id, a)).length;
+  const proxima = d.licoes.find((l) => feitas(l) < atividadesDa(l).length);
   const p = perfilAtual();
   const abc = (config().ordemMapa || 'abc') === 'abc';
   const chave = (l) => (l.tipo === 'vogais' ? 'a' : semAcento(l.palavra));
@@ -227,7 +228,7 @@ function telaMapa() {
   const ordenar = (ordem) => () => { mudarConfig('ordemMapa', ordem); rota(); };
   const cartao = ({ l, i }) => {
     const total = atividadesDa(l).length;
-    const tem = estrelasDa(l.id);
+    const tem = feitas(l);
     const nome = l.tipo === 'vogais'
       ? h('span', { class: 'nome', dataset: { fala: l.titulo } }, 'A E I O U')
       : escrito('span', l.palavra, { classe: 'nome', fala: falaPalavra(l.palavra) });
@@ -238,7 +239,7 @@ function telaMapa() {
     emoji(emojiDa(l)), nome, h('span', { class: 'estrelas' }, '⭐'.repeat(tem) + '☆'.repeat(total - tem)));
   };
   const jogos = h('button', { class: 'licao-card especial jogos', onclick: () => ir('#/jogos') },
-    h('span', { class: 'num' }, '🎮'), emoji('🎮'), h('span', { class: 'nome' }, 'Jogos'), h('span', { class: 'estrelas' }, '7 jogos com voz'));
+    emoji('🎮'), h('span', { class: 'nome' }, 'Jogos'), h('span', { class: 'estrelas' }, `${JOGOS.length} jogos com voz`));
   const alfabeto = h('button', { class: 'licao-card especial', onclick: () => ir('#/alfabeto') },
     h('span', { class: 'num' }, 'ABC'), emoji('🔤'), h('span', { class: 'nome' }, 'Alfabeto'), h('span', { class: 'estrelas' }, 'todas as letras'));
   tela.append(
@@ -251,11 +252,9 @@ function telaMapa() {
       h('button', { class: abc ? '' : 'ativo', onclick: ordenar('facil') }, '📈 Do fácil ao difícil')),
     ...(abc
       ? [h('h3', { class: 'secao-mapa' }, 'Uma lição para cada letra'),
-        h('div', { class: 'mapa' }, alfabeto, deLetras.map(cartao)),
+        h('div', { class: 'mapa' }, jogos, alfabeto, deLetras.map(cartao)),
         h('h3', { class: 'secao-mapa' }, 'Sílabas especiais', h('small', {}, 'CE, CI, Ç, CH, NH, LH, RR, SS, ÃO, BR, BL... depois das letras')),
-        h('div', { class: 'mapa' }, especiais.map(cartao)),
-        h('h3', { class: 'secao-mapa' }, 'Jogos'),
-        h('div', { class: 'mapa' }, jogos)]
+        h('div', { class: 'mapa' }, especiais.map(cartao))]
       : [h('div', { class: 'mapa' }, todas.map(cartao), alfabeto, jogos)]));
   precarregar(d.licoes.map((l) => (l.tipo === 'vogais' ? l.titulo : falaPalavra(l.palavra))));
   instrucao(d.frases.escolha);
@@ -274,7 +273,7 @@ function telaAlfabeto() {
       return h('div', { class: 'abc-card' },
         escrito('div', letra, { classe: 'grande', fala: som }),
         h('div', { class: 'formas ler-arrasto' }, ['maiuscula', 'minuscula', 'cursiva'].map((m) => escrito('span', letra, { modo: m, fala: som }))),
-        h('span', { class: 'emoji', dataset: { fala: preencher(d.frases.alfabeto, { x: fl, y: fp }) } }, info.emoji),
+        h('span', { class: 'emoji', dataset: { fala: ehFonico() ? fp : preencher(d.frases.alfabeto, { x: fl, y: fp }) } }, info.emoji),
         escrito('span', info.palavra, { classe: 'nome', fala: fp }));
     })));
 }
@@ -328,16 +327,16 @@ function telaPais() {
     h('section', {},
       h('h3', {}, 'Voz'),
       h('p', {}, audios
-        ? `Voz da Francisca: ${audios} falas gravadas.`
+        ? `${audios} falas com áudio pronto.`
         : `Os áudios da Francisca ainda não estão neste site. Usando a voz do aparelho: ${nomeVozNavegador()}.`),
       h('div', { class: 'acoes', style: 'justify-content:flex-start' }, botao('Testar a voz', () => falar(dados().frases.testeSom), 'azul', '🔊'))),
     h('section', {},
       h('h3', {}, 'Configurações'),
       h('label', { class: 'interruptor' }, 'Método: ', metodo),
       ehFonico()
-        ? [h('p', { class: 'nota' }, 'No fônico, tocar numa letra dá o SOM dela (gravado por pais e mães) e a lição começa pelos sons.'),
+        ? [h('p', { class: 'nota' }, 'A lição começa pelos sons. Você pode ouvir a voz que acompanha o app ou gravar a sua.'),
           h('div', { class: 'acoes', style: 'justify-content:flex-start;margin-top:0' }, botao('Sons das letras: ouvir, escolher e gravar', () => ir('#/sons'), 'azul', '👂'))]
-        : h('p', { class: 'nota' }, 'No Paulo Freire, a voz da Francisca lê o nome das letras, as sílabas e as palavras.'),
+        : h('p', { class: 'nota' }, 'No Paulo Freire, a lição começa pela palavra e a criança pode ouvir o nome de cada letra.'),
       h('label', { class: 'interruptor' }, 'Como ouvir: ', leitura),
       h('label', { class: 'interruptor' }, instrucoes, 'A voz explica cada atividade ao abrir'),
       h('p', {}, 'O tipo de letra (AA / aa / ', h('span', { class: 'esc-cursiva' }, 'aa'), ' / 🔀) fica nos botões lá em cima.'),
@@ -358,7 +357,7 @@ function telaPais() {
     h('section', {},
       h('h3', {}, 'Sobre'),
       ajudadas,
-      h('p', {}, 'Feito em casa, gratuito e sem propaganda. Voz neural "Francisca" (Microsoft). Letras: Andika (SIL) e Playwrite Brasil (TypeTogether), licença OFL.'),
+      h('p', {}, 'Feito em casa, gratuito e sem propaganda. Áudios de Marcos Dias Meneghel (GCompris), Liane (Serpro), Francisca e Maria (Microsoft). Fontes Andika e Playwrite Brasil, licença OFL.'),
       h('p', { class: 'nota-contador' }, 'Para saber quantas crianças o app ajuda, cada aparelho envia uma única vez um aviso anônimo de "+1" ',
         'ao contador GoatCounter: sem nome, sem localização e sem nenhum outro dado.'),
       h('details', { class: 'sugestoes' },
@@ -371,7 +370,7 @@ async function guardarTudo(barra, estado) {
   const arquivos = ['./', 'index.html', 'css/app.css', 'dados/licoes.json', 'audio/manifest.json', 'dados/sons.json', 'manifest.webmanifest',
     'fontes/andika-400.woff2', 'fontes/andika-700.woff2', 'fontes/playwrite-br-400.woff2',
     ...['app', 'dados', 'voz', 'dedo', 'escrita', 'progresso', 'efeitos', 'ui', 'licao', 'historia', 'jogos', 'contador', 'metodo', 'sons', 'telasSons', 'telaJogos'].map((m) => `js/${m}.js`),
-    ...listaAudios()];
+    'narracao/manifest.json', ...listaAudios(), ...audiosDosSons()];
   const cache = await caches.open('aprender-ler');
   let feitos = 0, falhas = 0;
   const fila = [...arquivos];

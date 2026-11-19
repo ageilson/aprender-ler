@@ -12,9 +12,13 @@ export const ehFonico = () => config().metodo === 'fonico';
 const VOGAL_E_I = /^[eiéêí]/;
 
 // As gravações que fazem o som deste grupo de letras: 'ch' -> ['x'], 'br' -> ['b', 'r'], 'ce' -> ['s'].
-export function chavesDoSom(grupo, vogalSeguinte = '') {
+export function chavesDoSom(grupo, vogalSeguinte = '', anterior = '') {
   const d = dados();
   const g = grupo.toLowerCase();
+  const entreVogais = /[aeiouáéíóúâêôãõ]$/.test(anterior) && /^[aeiouáéíóúâêôãõ]/.test(vogalSeguinte);
+  if (g === 's' && entreVogais) return ['z'];
+  if (g === 'r' && (entreVogais || /[bcdgptfv]$/.test(anterior))) return ['r_fraco'];
+  if (/^[bcdgptfv]r$/.test(g)) return [g[0], 'r_fraco'];
   if (g === 'c' && VOGAL_E_I.test(vogalSeguinte)) return ['s'];
   if (g === 'g' && VOGAL_E_I.test(vogalSeguinte)) return ['j'];
   const existe = (k) => d.sons.some(([chave]) => chave === k);
@@ -24,10 +28,10 @@ export function chavesDoSom(grupo, vogalSeguinte = '') {
 }
 
 // O que falar ao tocar numa letra (ou grupo de letras antes da vogal).
-export function falaDaLetra(grupo, vogalSeguinte = '') {
+export function falaDaLetra(grupo, vogalSeguinte = '', anterior = '') {
   if (!ehFonico()) return grupo.length > 1 ? falaConsoante(grupo) : falaLetra(grupo);
   if (grupo.toLowerCase() === 'h') return 'som:h';
-  return 'som:' + chavesDoSom(grupo, vogalSeguinte).join('+');
+  return 'som:' + chavesDoSom(grupo, vogalSeguinte, anterior).join('+');
 }
 
 export function falaDasVogais(v) {
