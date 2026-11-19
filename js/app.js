@@ -331,9 +331,9 @@ function telaPais() {
           mudarConfig('vozPrincipal', e.target.value);
           falar(dados().frases.testeSom);
         } }, [
-          ['marcos-liane', 'Marcos e Liane (padrão)'], ['liane', 'Liane'], ['francisca', 'Francisca'],
+          ['francisca', 'Francisca (padrão)'], ['liane', 'Liane'], ['marcos-liane', 'Marcos e Liane'],
         ].map(([id, nome]) => h('option', { value: id, selected: config().vozPrincipal === id }, nome)))),
-      h('p', { class: 'nota' }, 'Marcos tem oito palavras gravadas. Na opção Marcos e Liane, a Liane lê as outras palavras, as instruções e as histórias. Você pode escolher a voz dos sons das letras separadamente no método fônico.'),
+      h('p', { class: 'nota' }, 'Com a Francisca, a criança ouve a narração em português do Brasil. A Liane faz os sons isolados das letras no método fônico.'),
       h('p', {}, audios
         ? `${audios} falas com áudio pronto.`
         : `Os áudios da Francisca ainda não estão neste site. Usando a voz do aparelho: ${nomeVozNavegador()}.`),

@@ -41,7 +41,7 @@ export async function carregarManifesto() {
 }
 
 const enderecoDo = (item) => item.url || 'audio/' + item.a;
-const falasAtuais = () => catalogos[config().vozPrincipal] || catalogos['marcos-liane'] || {};
+const falasAtuais = () => catalogos[config().vozPrincipal] || catalogos.francisca || {};
 export const totalAudios = () => Object.keys(falasAtuais()).length;
 export const listaAudios = () => [...new Set(Object.values(catalogos).flatMap((falas) => Object.values(falas).map(enderecoDo)))];
 export const contexto = () => ctx;

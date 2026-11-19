@@ -58,7 +58,7 @@ export async function apagarGravacoes() {
 async function vozEscolhida(escolha = config().vozSons || '') {
   if (escolha === 'local') return 'local';
   if (escolha && catalogo.conjuntos.some((c) => c.id === escolha)) return escolha;
-  if (config().vozPrincipal === 'liane' && catalogo.conjuntos.some((c) => c.id === 'liane-br4')) return 'liane-br4';
+  if (config().vozPrincipal === 'marcos-liane' && catalogo.conjuntos.some((c) => c.id === 'marcos')) return 'marcos';
   if (catalogo.padrao && catalogo.conjuntos.some((c) => c.id === catalogo.padrao)) return catalogo.padrao;
   const melhor = [...catalogo.conjuntos].sort((a, b) => (b.nota || 0) - (a.nota || 0))[0];
   if (melhor) return melhor.id;

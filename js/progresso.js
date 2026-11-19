@@ -6,12 +6,16 @@ const CHAVE = 'aprender-ler.v1';
 // config.metodo: 'freire' (palavra -> sílabas) ou 'fonico' (som das letras -> sílabas); config.vozSons: ver sons.js
 let estado = {
   perfis: [], atual: null, progresso: {},
-  config: { escrita: 'maiuscula', leitura: 'toque', instrucoes: true, configurado: false, metodo: 'freire', vozSons: '', vozPrincipal: 'marcos-liane' },
+  config: { escrita: 'maiuscula', leitura: 'toque', instrucoes: true, configurado: false, metodo: 'freire', vozSons: '', vozPrincipal: 'francisca', versaoVoz: 2 },
 };
 
 export function carregarProgresso() {
   try {
     const salvo = JSON.parse(localStorage.getItem(CHAVE) || 'null');
+    // A versão anterior salvava o padrão Marcos e Liane até quando a família nunca escolhia uma voz.
+    if (!salvo?.config?.versaoVoz && salvo?.config?.vozPrincipal === 'marcos-liane') {
+      salvo.config.vozPrincipal = 'francisca';
+    }
     if (salvo) estado = { ...estado, ...salvo, config: { ...estado.config, ...salvo.config } };
   } catch { /* navegador sem armazenamento: o app funciona, só não lembra */ }
   return estado;
