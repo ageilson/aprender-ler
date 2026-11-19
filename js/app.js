@@ -326,6 +326,14 @@ function telaPais() {
       h('p', {}, 'Cada atividade completa vale uma estrela ⭐. Sugestão: 10 a 15 minutos por dia, junto com ela no começo.')),
     h('section', {},
       h('h3', {}, 'Voz'),
+      h('label', { class: 'interruptor' }, 'Voz principal ',
+        h('select', { onchange: (e) => {
+          mudarConfig('vozPrincipal', e.target.value);
+          falar(dados().frases.testeSom);
+        } }, [
+          ['marcos-liane', 'Marcos e Liane (padrão)'], ['liane', 'Liane'], ['francisca', 'Francisca'],
+        ].map(([id, nome]) => h('option', { value: id, selected: config().vozPrincipal === id }, nome)))),
+      h('p', { class: 'nota' }, 'Marcos tem oito palavras gravadas. Na opção Marcos e Liane, a Liane lê as outras palavras, as instruções e as histórias. Você pode escolher a voz dos sons das letras separadamente no método fônico.'),
       h('p', {}, audios
         ? `${audios} falas com áudio pronto.`
         : `Os áudios da Francisca ainda não estão neste site. Usando a voz do aparelho: ${nomeVozNavegador()}.`),
@@ -349,7 +357,7 @@ function telaPais() {
     h('section', {},
       h('h3', {}, 'Usar sem internet'),
       podeGuardar
-        ? [h('p', {}, 'Guarda o app e todas as falas no aparelho (uns 10 MB). Depois funciona até sem Wi-Fi.'),
+        ? [h('p', {}, 'Guarda o app e as vozes no aparelho para brincar e trocar a narração mesmo sem Wi-Fi.'),
           h('div', { class: 'acoes', style: 'justify-content:flex-start' }, botao('Guardar tudo no aparelho', () => guardarTudo(barra, estadoBaixar), 'roxo', '📥')),
           barra, estadoBaixar]
         : h('p', {}, 'Disponível quando o app é aberto pelo site (https).'),
@@ -370,7 +378,7 @@ async function guardarTudo(barra, estado) {
   const arquivos = ['./', 'index.html', 'css/app.css', 'dados/licoes.json', 'audio/manifest.json', 'dados/sons.json', 'manifest.webmanifest',
     'fontes/andika-400.woff2', 'fontes/andika-700.woff2', 'fontes/playwrite-br-400.woff2',
     ...['app', 'dados', 'voz', 'dedo', 'escrita', 'progresso', 'efeitos', 'ui', 'licao', 'historia', 'jogos', 'contador', 'metodo', 'sons', 'telasSons', 'telaJogos'].map((m) => `js/${m}.js`),
-    'narracao/manifest.json', ...listaAudios(), ...audiosDosSons()];
+    'narracao/manifest.json', 'liane/manifest.json', ...listaAudios(), ...audiosDosSons()];
   const cache = await caches.open('aprender-ler');
   let feitos = 0, falhas = 0;
   const fila = [...arquivos];

@@ -5,9 +5,10 @@
 
 import { dados, falaConsoante } from './dados.js';
 import { fonteDoSom } from './sons.js';
+import { config } from './progresso.js';
 
 let ctx = null;
-let manifesto = { itens: {} };
+let catalogos = {};
 let fonteAtual = null;
 let elementoAtual = null;
 const gravacoes = new Map();
@@ -25,15 +26,24 @@ export async function carregarManifesto() {
     } catch { /* cada pacote pode estar disponível independentemente */ }
     return {};
   }
-  const [extra, principal] = await Promise.all([pacote('narracao'), pacote('audio')]);
+  const [extra, principal, liane] = await Promise.all([pacote('narracao'), pacote('audio'), pacote('liane')]);
   const narracao = (itens) => Object.fromEntries(Object.entries(itens || {}).map(([fala, arquivo]) =>
     [fala, { url: 'narracao/' + arquivo }]));
-  manifesto.itens = { ...narracao(extra.itens), ...principal.itens, ...narracao(extra.humanas) };
+  const humanas = narracao(extra.humanas);
+  const francisca = { ...humanas, ...narracao(extra.itens), ...principal.itens };
+  const falasLiane = Object.fromEntries(Object.entries(liane.itens || {}).map(([fala, item]) =>
+    [fala, { ...item, url: 'liane/' + item.a }]));
+  catalogos = {
+    francisca,
+    liane: { ...francisca, ...falasLiane },
+    'marcos-liane': { ...francisca, ...falasLiane, ...humanas },
+  };
 }
 
 const enderecoDo = (item) => item.url || 'audio/' + item.a;
-export const totalAudios = () => Object.keys(manifesto.itens || {}).length;
-export const listaAudios = () => Object.values(manifesto.itens || {}).map(enderecoDo);
+const falasAtuais = () => catalogos[config().vozPrincipal] || catalogos['marcos-liane'] || {};
+export const totalAudios = () => Object.keys(falasAtuais()).length;
+export const listaAudios = () => [...new Set(Object.values(catalogos).flatMap((falas) => Object.values(falas).map(enderecoDo)))];
 export const contexto = () => ctx;
 
 // Navegadores só deixam tocar som depois de um toque: chamado pelo botão "Começar".
@@ -62,24 +72,24 @@ function trechoComFala(buf, item) {
   return fim > inicio ? { buf, inicio, duracao: fim - inicio } : { buf, inicio: 0, duracao: buf.duration };
 }
 
-function buffer(texto) {
-  const item = manifesto.itens?.[texto];
+function buffer(item) {
   if (!item || !ctx) return Promise.resolve(null);
-  if (!buffers.has(texto)) {
-    buffers.set(texto, fetch(enderecoDo(item))
+  const url = enderecoDo(item);
+  if (!buffers.has(url)) {
+    buffers.set(url, fetch(url)
       .then((r) => { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
       .then((b) => new Promise((ok, erro) => ctx.decodeAudioData(b, ok, erro)))
       .then((b) => trechoComFala(b, item))
-      .catch(() => null));
+      .catch(() => { buffers.delete(url); return null; }));
   }
-  return buffers.get(texto);
+  return buffers.get(url);
 }
 
 export function precarregar(textos) {
   const semWebAudio = !(window.AudioContext || window.webkitAudioContext);
   textos.forEach((t) => {
-    const item = manifesto.itens?.[t];
-    if (!semWebAudio) buffer(t);
+    const item = falasAtuais()[t];
+    if (!semWebAudio) buffer(item);
     else if (item && !elementos.has(enderecoDo(item))) {
       const el = new Audio(enderecoDo(item));
       el.preload = 'auto';
@@ -127,10 +137,11 @@ async function tocar(texto, minha, { aoPalavra } = {}) {
   historico.push(texto);
   if (historico.length > 200) historico.shift();
   if (texto.startsWith('som:')) return tocarSons(texto.slice(4).split('+'), minha);
-  const buf = await buffer(texto);
+  const item = falasAtuais()[texto];
+  const buf = await buffer(item);
   if (minha !== geracao) return false;
-  if (buf) return tocarBuffer(buf, minha, manifesto.itens[texto], aoPalavra);
-  if (manifesto.itens?.[texto] && !ctx) return tocarElemento(manifesto.itens[texto], minha, aoPalavra);
+  if (buf) return tocarBuffer(buf, minha, item, aoPalavra);
+  if (item && !ctx) return tocarElemento(item, minha, aoPalavra);
   return falarNavegador(texto, minha, aoPalavra);
 }
 

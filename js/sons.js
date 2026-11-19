@@ -2,7 +2,7 @@
 //  - "Minha gravação": fica só neste aparelho (IndexedDB). Só sai daqui se o pai tocar em "Enviar".
 //  - Vozes publicadas: enviadas por pais, conferidas e colocadas no site (dados/sons.json + pasta sons/<id>/).
 //    No máximo 10; a de nota mais baixa sai quando chega uma nova (ferramentas/sons.py).
-// config.vozSons: '' = automático (minha gravação, senão a voz padrão, senão a de melhor nota),
+// config.vozSons: '' = automático (acompanha a voz principal),
 //                 'local' = minha gravação, ou o id de uma voz publicada.
 
 import { config, mudarConfig } from './progresso.js';
@@ -58,10 +58,11 @@ export async function apagarGravacoes() {
 async function vozEscolhida(escolha = config().vozSons || '') {
   if (escolha === 'local') return 'local';
   if (escolha && catalogo.conjuntos.some((c) => c.id === escolha)) return escolha;
-  if ((await chavesGravadas()).length) return 'local';
+  if (config().vozPrincipal === 'liane' && catalogo.conjuntos.some((c) => c.id === 'liane-br4')) return 'liane-br4';
   if (catalogo.padrao && catalogo.conjuntos.some((c) => c.id === catalogo.padrao)) return catalogo.padrao;
   const melhor = [...catalogo.conjuntos].sort((a, b) => (b.nota || 0) - (a.nota || 0))[0];
-  return melhor ? melhor.id : null;
+  if (melhor) return melhor.id;
+  return (await chavesGravadas()).length ? 'local' : null;
 }
 
 // Endereço do som desta letra na voz escolhida (ou na voz pedida), ou null se ninguém gravou.

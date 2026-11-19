@@ -6,7 +6,7 @@ const CHAVE = 'aprender-ler.v1';
 // config.metodo: 'freire' (palavra -> sílabas) ou 'fonico' (som das letras -> sílabas); config.vozSons: ver sons.js
 let estado = {
   perfis: [], atual: null, progresso: {},
-  config: { escrita: 'maiuscula', leitura: 'toque', instrucoes: true, configurado: false, metodo: 'freire', vozSons: '' },
+  config: { escrita: 'maiuscula', leitura: 'toque', instrucoes: true, configurado: false, metodo: 'freire', vozSons: '', vozPrincipal: 'marcos-liane' },
 };
 
 export function carregarProgresso() {

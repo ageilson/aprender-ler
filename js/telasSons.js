@@ -44,7 +44,7 @@ export async function telaSons(tela, ir) {
       estrelas);
   };
 
-  const cartoes = [cartao({ id: '', titulo: 'Automático', detalhe: 'Usa a minha gravação, se houver; senão, a voz padrão ou a de melhor nota.' })];
+  const cartoes = [cartao({ id: '', titulo: 'Automático', detalhe: 'Segue a voz principal. Para usar sua gravação neste aparelho, escolha Minha gravação.' })];
   if (gravadas.length) {
     cartoes.push(cartao({ id: 'local', titulo: '🎙️ Minha gravação', amostra: gravadas.slice(0, 5), detalhe: `Só neste aparelho. ${gravadas.length} de ${total} sons gravados.` }));
     cartoes.at(-1).append(h('div', { class: 'acoes', style: 'justify-content:flex-start;margin:8px 0 0' },
@@ -80,7 +80,7 @@ export async function telaSons(tela, ir) {
     lista,
     h('section', {},
       h('h3', {}, 'Gravar com a sua voz e enviar para o site'),
-      h('p', {}, 'Leva uns 10 minutos. A gravação fica só neste aparelho e já vale nele.'),
+    h('p', {}, 'Leva uns 10 minutos. A gravação fica só neste aparelho.'),
       h('p', {}, 'Para outras crianças usarem a sua voz: no fim da tela de gravação, toque em ', h('strong', {}, '📤 Enviar meus sons'),
         ` e mande o arquivo pelo WhatsApp ou e-mail para ${CONTATO.nome}. Ele ouve e coloca no site, e a sua voz aparece aqui para todos escolherem.`),
       h('div', { class: 'acoes', style: 'justify-content:flex-start' }, botao('Gravar os sons das letras', () => ir('#/gravar'), 'roxo', '🎙️'))));
@@ -209,7 +209,7 @@ export async function telaGravar(tela, ir, irPara) {
       h('h3', {}, 'Como funciona'),
       h('ol', {},
         h('li', {}, h('strong', {}, 'Grave'), ' os 23 sons aqui embaixo (uns 10 minutos).'),
-        h('li', {}, 'Eles já passam a valer ', h('strong', {}, 'neste aparelho'), '.'),
+        h('li', {}, 'Para ouvir sua voz nas atividades, toque em ', h('strong', {}, 'Usar a minha gravação'), '.'),
         h('li', {}, 'Se quiser ajudar outras crianças, ', h('strong', {}, 'envie'), ' no fim da página: o arquivo vai pelo WhatsApp ou e-mail e é colocado no site.')),
       h('div', { class: 'acoes', style: 'justify-content:flex-start;margin:6px 0 0' },
         botao('Ir para Enviar', () => enviar.scrollIntoView({ behavior: 'smooth', block: 'start' }), 'branco', '⬇️'))),
